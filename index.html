@@ -69,6 +69,9 @@ table.T{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:24px}
 .prov-header .formula{font-size:15px;font-weight:500;margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,.2)}
 .prov-dual{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
 .loading{text-align:center;padding:80px 20px;color:var(--muted);font-size:16px}
+.cand-photo{width:28px;height:28px;border-radius:50%;object-fit:cover;vertical-align:middle;margin-right:6px;border:1px solid var(--border);flex-shrink:0}
+.cand-cell{display:flex;align-items:center;gap:0}
+.cand-cell strong{flex:1;min-width:0}
 @media(max-width:800px){.prov-dual{grid-template-columns:1fr}}
 @media(max-width:600px){
   .R-ctl{padding:12px 16px}.R-body{padding:16px}.R-hd{padding:16px}.R-hd h1{font-size:18px}
@@ -90,7 +93,9 @@ let PROV = {};
 let DATA = {};
 let BANCAS = {};
 let LOC_MAP = {};
- 
+let FOTOS = {};
+let LOGOS = {};
+
 async function init() {
   try {
     const [provRes, munRes] = await Promise.all([
@@ -101,6 +106,14 @@ async function init() {
     DATA = munRes.resultados;
     BANCAS = munRes.bancas;
     LOC_MAP = munRes.loc_map;
+
+    // Fotos: non-blocking, si falla no pasa nada
+    try {
+      const fotosRes = await fetch('fotos_candidatos.json').then(r => r.json());
+      FOTOS = fotosRes.fotos || {};
+      LOGOS = fotosRes.logos || {};
+    } catch(e) { console.log('Fotos no disponibles'); }
+
     render();
   } catch (e) {
     document.getElementById('app').innerHTML = `
@@ -111,7 +124,7 @@ async function init() {
       </div></div>`;
   }
 }
- 
+
 // ═══════════════════════════════════════════════════
 // CONSTANTES Y ESTADO
 // ═══════════════════════════════════════════════════
@@ -119,9 +132,9 @@ const CATS=["Intendente","Concejales","Jefe Comunal","Consejo de la Magistratura
 const CLAB={"Intendente":"INTENDENTE","Concejales":"CONCEJALES","Jefe Comunal":"JEFE COMUNAL","Consejo de la Magistratura":"REP. CONSEJO DE LA MAGISTRATURA","Tribunal de Cuentas":"TRIBUNAL DE CUENTAS","Juez de Paz":"JUEZ DE PAZ"};
 const YRS=[2023,2019,2015,2011,2007,2003,1999,1995,1991,1987,1983];
 const MUN_AVAIL=[2023];
- 
+
 let S={year:2023,nivel:"provincial",mode:"detalle",loc:"",cmp:[],cat:"Intendente"};
- 
+
 // ═══════════════════════════════════════════════════
 // HELPERS
 // ═══════════════════════════════════════════════════
@@ -129,7 +142,14 @@ function locsFor(y,c){const d=DATA[y];return d?Object.keys(d).filter(l=>d[l][c])
 function catsFor(y,l){const d=DATA[y];return(!d||!d[l])?[]:CATS.filter(c=>d[l][c]);}
 function res(y,l,c){const d=DATA[y];if(!d||!d[l]||!d[l][c])return[];return d[l][c].map(r=>({p:r[0],c:r[1],v:r[2],pct:r[3],bk:r[4]}));}
 function fmt(n){return n!=null?n.toLocaleString("es-AR"):"-";}
- 
+
+function fotoImg(loc, cat, party) {
+  const key = `${loc}|${cat}|${party}`;
+  const url = FOTOS[key] || LOGOS[party];
+  if (!url) return '';
+  return `<img class="cand-photo" src="${url}" onerror="this.style.display='none'" loading="lazy">`;
+}
+
 function getBancas(loc,party){
   const mun=LOC_MAP[loc];
   if(!mun||!BANCAS[mun])return null;
@@ -149,11 +169,11 @@ function getTotalBancas(loc){
   const mun=LOC_MAP[loc];
   return(mun&&BANCAS[mun])?BANCAS[mun]["__total"]:null;
 }
- 
+
 // ═══════════════════════════════════════════════════
 // RENDER: TABLA PROVINCIAL
 // ═══════════════════════════════════════════════════
-function renderProvTable(data, label, showBancas) {
+function renderProvTable(data, label, showBancas, provCat) {
   let h = `<table class="T">`;
   h += `<tr class="sec"><td colspan="${showBancas ? 4 : 3}">${label}</td></tr>`;
   h += `<tr><th style="width:${showBancas ? '45%' : '50%'}">Partido / Alianza</th><th class="r">Votos</th><th class="c">%</th>`;
@@ -162,8 +182,9 @@ function renderProvTable(data, label, showBancas) {
   const sorted = [...data.partidos].sort((a, b) => b[1] - a[1]);
   sorted.forEach((row, i) => {
     const isW = i === 0;
+    const foto = fotoImg('_PROVINCIA', provCat||'', row[0]);
     h += `<tr class="${isW ? 'w' : ''}">`;
-    h += `<td><strong>${row[0]}</strong></td>`;
+    h += `<td><div class="cand-cell">${foto}<strong>${row[0]}</strong></div></td>`;
     h += `<td class="r" style="font-weight:700">${fmt(row[1])}</td>`;
     h += `<td class="c">${row[2].toFixed(2)}%</td>`;
     if (showBancas) {
@@ -179,7 +200,7 @@ function renderProvTable(data, label, showBancas) {
   h += `</table>`;
   return h;
 }
- 
+
 // ═══════════════════════════════════════════════════
 // RENDER: TABLA MUNICIPAL
 // ═══════════════════════════════════════════════════
@@ -200,7 +221,8 @@ function renderTable(loc,cat,showHeader){
   afirm.forEach((x,i)=>{
     const w=i===0;
     const b=isConc?getBancas(loc,x.p):null;
-    h+=`<tr class="${w?"w":""}"><td><strong>${x.p}</strong>${x.c?'<br><span style="font-size:11px;color:var(--muted)">'+x.c+"</span>":""}</td>`;
+    const foto=fotoImg(loc,cat,x.p);
+    h+=`<tr class="${w?"w":""}"><td><div class="cand-cell">${foto}<strong>${x.p}</strong></div>${x.c?'<span style="font-size:11px;color:var(--muted);margin-left:34px">'+x.c+"</span>":""}</td>`;
     h+=`<td class="r" style="font-weight:700">${fmt(x.v)}</td>`;
     h+=`<td class="c">${x.pct.toFixed(2)}%</td>`;
     if(isConc)h+=`<td class="c">${b?'<span class="bancas">'+b+"</span>":"-"}</td>`;
@@ -214,7 +236,7 @@ function renderTable(loc,cat,showHeader){
   h+=`</table>`;
   return h;
 }
- 
+
 // ═══════════════════════════════════════════════════
 // RENDER PRINCIPAL
 // ═══════════════════════════════════════════════════
@@ -225,7 +247,7 @@ function render(){
   const yearAvail = isProv ? YRS : MUN_AVAIL;
   if (!yearAvail.includes(S.year)) S.year = yearAvail[0];
   const lfc = isMun ? locsFor(S.year, S.cat) : [];
- 
+
   let h = `
   <div class="R-hd">
     <h1>RESULTADOS ELECTORALES</h1>
@@ -243,7 +265,7 @@ function render(){
       return`<button class="R-yr ${y===S.year?"on":""} ${a?"":"off"}" onclick="${a?`SS({year:${y},loc:'',cmp:[]})`:""}">${y}</button>`;
     }).join("")}</div></div>
   </div>`;
- 
+
   if (isProv) {
     const pData = PROV[S.year];
     h += `<div class="R-body">`;
@@ -254,8 +276,8 @@ function render(){
       h += `<div class="formula">Fórmula electa: <strong>${pData.formula}</strong></div></div>`;
       if (pData.advertencia) h += `<div class="warn-box"><span class="wi">⚠️</span><span>${pData.advertencia}</span></div>`;
       h += `<div class="prov-dual">`;
-      h += `<div>${renderProvTable(pData.gobernador, "GOBERNADOR Y VICEGOBERNADOR", false)}</div>`;
-      h += `<div>${renderProvTable(pData.diputados, "DIPUTADOS PROVINCIALES (" + (pData.diputados.bancas || 27) + " bancas)", true)}</div>`;
+      h += `<div>${renderProvTable(pData.gobernador, "GOBERNADOR Y VICEGOBERNADOR", false, "Gobernador")}</div>`;
+      h += `<div>${renderProvTable(pData.diputados, "DIPUTADOS PROVINCIALES (" + (pData.diputados.bancas || 27) + " bancas)", true, "Diputados")}</div>`;
       h += `</div>`;
     } else {
       h += `<div class="empty"><div class="ic">📊</div><div class="mg">Datos provinciales no disponibles para ${S.year}</div></div>`;
@@ -281,7 +303,7 @@ function render(){
     </div>
   </div>
   <div class="R-body">`;
- 
+
     if(S.mode==="ganadores"){
       const ws=lfc.map(l=>{const r=res(S.year,l,S.cat).filter(x=>!x.bk).sort((a,b)=>b.v-a.v);return r.length?{l,...r[0]}:null;}).filter(Boolean);
       h+=`<div class="cards">${ws.map(w=>`<div class="card" onclick="SS({loc:'${w.l}',mode:'detalle'})"><div><div class="n">${w.l}</div><div class="p">${w.p}</div></div><div class="pct">${w.pct.toFixed(1)}%</div></div>`).join("")}</div>`;
@@ -334,15 +356,15 @@ function render(){
     }
     h+=`</div>`;
   }
- 
+
   h+=`<div class="R-ft">Fuente: datosoficiales.juschubut.gov.ar — Escrutinio Definitivo · Recopilación histórica: Secretaría Electoral Permanente del Chubut</div>`;
   app.innerHTML=h;
 }
- 
+
 function SS(p){Object.assign(S,p);render();}
 function addCmp(l){if(l&&!S.cmp.includes(l)){S.cmp=[...S.cmp,l];render();}}
 function rmCmp(l){S.cmp=S.cmp.filter(x=>x!==l);render();}
- 
+
 // Arrancar
 init();
 </script>
