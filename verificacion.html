@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verificación de Datos — Resultados Electorales Chubut</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
+:root{--navy:#1b2a4a;--navy-light:#2d4470;--navy-dark:#0f1a30;--accent:#5b9bd5;--bg:#f4f6f9;--white:#fff;--text:#2c3e50;--muted:#7f8c8d;--green:#27ae60;--border:#dce1e8;--warn:#e67e22;--red:#e74c3c}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);font-family:'Source Sans 3','Segoe UI',sans-serif;color:var(--text);padding:16px}
+.app{max-width:1200px;margin:0 auto}
+.hd{background:linear-gradient(135deg,var(--navy-dark),var(--navy),var(--navy-light));color:#fff;padding:20px 24px;border-radius:8px 8px 0 0}
+.hd h1{font-size:20px;font-weight:700;letter-spacing:.5px}.hd .sub{font-size:13px;opacity:.7;margin-top:2px}
+.toolbar{background:var(--white);padding:12px 20px;border-bottom:1px solid var(--border);display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.toolbar label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--muted)}
+.toolbar select,.toolbar input{padding:6px 10px;border:1px solid var(--border);border-radius:4px;font-family:inherit;font-size:13px}
+.toolbar input[type=text]{min-width:140px}
+.btn{padding:6px 14px;border:none;border-radius:4px;font-family:inherit;font-size:12px;font-weight:600;cursor:pointer;transition:.15s}
+.btn-navy{background:var(--navy);color:#fff}.btn-navy:hover{background:var(--navy-light)}
+.btn-accent{background:var(--accent);color:#fff}.btn-accent:hover{opacity:.9}
+.btn-outline{background:var(--white);color:var(--navy);border:1px solid var(--border)}.btn-outline:hover{border-color:var(--navy)}
+.btn-sm{padding:4px 10px;font-size:11px}
+.stats{background:var(--white);padding:16px 20px;border-bottom:1px solid var(--border);display:flex;gap:20px;flex-wrap:wrap}
+.stat{text-align:center;min-width:80px}
+.stat .n{font-size:28px;font-weight:700;line-height:1}.stat .l{font-size:11px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.5px}
+.stat.ok .n{color:var(--green)}.stat.warn .n{color:var(--warn)}.stat.pend .n{color:var(--muted)}.stat.err .n{color:var(--red)}
+.body{background:var(--white);overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{background:var(--navy);color:#fff;padding:8px 10px;font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.4px;position:sticky;top:0;z-index:2;white-space:nowrap}
+th:first-child{text-align:left;min-width:170px}
+td{padding:6px 8px;border-bottom:1px solid var(--border);text-align:center;vertical-align:middle}
+td:first-child{text-align:left;font-weight:600;font-size:12px;white-space:nowrap;background:var(--white);position:sticky;left:0;z-index:1;border-right:2px solid var(--border)}
+tr:hover td{background:#f0f4f8}
+tr.section td{background:var(--navy-light);color:#fff;font-weight:700;font-size:12px;padding:6px 10px}
+.cell{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:6px;cursor:pointer;font-size:16px;transition:.15s;border:2px solid transparent;user-select:none}
+.cell:hover{transform:scale(1.15)}
+.cell.pending{background:#f0f0f0;color:#bbb}.cell.pending::after{content:'·';font-size:24px}
+.cell.ok{background:#d5f5e3;color:var(--green);border-color:#a9dfbf}.cell.ok::after{content:'✓';font-weight:700}
+.cell.issue{background:#fdebd0;color:var(--warn);border-color:#f5cba7}.cell.issue::after{content:'⚠'}
+.cell.na{background:#eee;color:#bbb;cursor:default}.cell.na::after{content:'—'}
+.cell.nodata{background:#fadbd8;color:var(--red);border-color:#f1948a}.cell.nodata::after{content:'✗'}
+.cell.has-obs{box-shadow:0 0 0 2px var(--accent)}
+.ft{background:var(--navy-dark);color:rgba(255,255,255,.5);padding:12px 20px;font-size:11px;border-radius:0 0 8px 8px}
+/* Modal */
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:100;display:flex;align-items:center;justify-content:center;animation:fadeIn .15s}
+.modal{background:var(--white);border-radius:8px;padding:24px;max-width:480px;width:90%;box-shadow:0 16px 48px rgba(0,0,0,.2)}
+.modal h3{font-size:16px;color:var(--navy);margin-bottom:4px}
+.modal .meta{font-size:12px;color:var(--muted);margin-bottom:16px}
+.modal textarea{width:100%;border:1px solid var(--border);border-radius:4px;padding:8px;font-family:inherit;font-size:13px;min-height:80px;resize:vertical}
+.modal textarea:focus{outline:none;border-color:var(--accent)}
+.modal .status-row{display:flex;gap:6px;margin:12px 0}
+.modal .st-btn{flex:1;padding:8px;border:2px solid var(--border);border-radius:6px;text-align:center;cursor:pointer;font-size:12px;font-weight:600;transition:.15s}
+.modal .st-btn:hover{border-color:var(--navy)}
+.modal .st-btn.active{border-width:3px}
+.modal .st-btn.s-ok{border-color:var(--green);background:#d5f5e3;color:var(--green)}
+.modal .st-btn.s-issue{border-color:var(--warn);background:#fdebd0;color:var(--warn)}
+.modal .st-btn.s-nodata{border-color:var(--red);background:#fadbd8;color:var(--red)}
+.modal .st-btn.s-na{border-color:#999;background:#eee;color:#999}
+.modal .st-btn.s-pending{border-color:#ccc;background:#f9f9f9;color:#aaa}
+.modal-actions{display:flex;gap:8px;margin-top:16px;justify-content:flex-end}
+.log{font-size:11px;color:var(--muted);margin-top:8px;max-height:80px;overflow-y:auto;background:#fafafa;padding:6px 8px;border-radius:4px}
+.log div{border-bottom:1px solid #eee;padding:2px 0}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@media(max-width:600px){.stats{gap:12px}.stat .n{font-size:22px}.toolbar{padding:10px 12px}}
+</style>
+</head>
+<body>
+<div class="app" id="app"></div>
+<script>
+const STORAGE_KEY = 'verificacion_electoral_v1';
+const CATS_ORDER = ["Intendente","Concejales","Jefe Comunal","Consejo de la Magistratura","Tribunal de Cuentas","Juez de Paz"];
+const CAT_SHORT = {"Intendente":"INT","Concejales":"CONC","Jefe Comunal":"JC","Consejo de la Magistratura":"CM","Tribunal de Cuentas":"TC","Juez de Paz":"JP"};
+
+let DATA = {};
+let STATE = { reviewer: '', checks: {}, version: 1 };
+
+// ═══ PERSISTENCE ═══
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) STATE = JSON.parse(raw);
+  } catch(e) {}
+}
+function saveState() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(STATE));
+}
+function getCheck(loc, cat) {
+  return STATE.checks[`${loc}|${cat}`] || { status: 'pending', obs: '', reviewer: '', log: [] };
+}
+function setCheck(loc, cat, check) {
+  STATE.checks[`${loc}|${cat}`] = check;
+  saveState();
+}
+
+// ═══ DATA LOADING ═══
+async function init() {
+  try {
+    const res = await fetch('datos_municipales.json').then(r => r.json());
+    DATA = res.resultados['2023'] || {};
+    loadState();
+    render();
+  } catch(e) {
+    document.getElementById('app').innerHTML = `
+      <div class="hd"><h1>VERIFICACIÓN DE DATOS</h1></div>
+      <div style="padding:40px;text-align:center;color:var(--muted)">
+        <p style="font-size:16px">No se pudo cargar datos_municipales.json</p>
+        <p style="font-size:13px;margin-top:8px">Asegurate de que este archivo esté en la misma carpeta que datos_municipales.json</p>
+        <p style="font-size:12px;margin-top:4px;color:var(--red)">${e.message}</p>
+      </div>`;
+  }
+}
+
+// ═══ COMPUTED DATA ═══
+function getLocalities() {
+  const locs = Object.keys(DATA).sort();
+  const municipios = locs.filter(l => {
+    const cats = Object.keys(DATA[l]);
+    return cats.includes('Intendente') || cats.includes('Concejales');
+  });
+  const comunas = locs.filter(l => !municipios.includes(l));
+  return { municipios, comunas, all: locs };
+}
+function locHasCat(loc, cat) {
+  return DATA[loc] && DATA[loc][cat] && DATA[loc][cat].length > 0;
+}
+function getStats() {
+  const { all } = getLocalities();
+  let total = 0, ok = 0, issue = 0, nodata = 0, pending = 0, na = 0;
+  all.forEach(loc => {
+    CATS_ORDER.forEach(cat => {
+      total++;
+      const c = getCheck(loc, cat);
+      if (c.status === 'ok') ok++;
+      else if (c.status === 'issue') issue++;
+      else if (c.status === 'nodata') nodata++;
+      else if (c.status === 'na') na++;
+      else pending++;
+    });
+  });
+  return { total, ok, issue, nodata, pending, na };
+}
+
+// ═══ MODAL ═══
+let currentModal = null;
+function openModal(loc, cat) {
+  const check = getCheck(loc, cat);
+  const hasData = locHasCat(loc, cat);
+  currentModal = { loc, cat, check: { ...check } };
+  renderModal();
+}
+function closeModal() { currentModal = null; document.querySelector('.modal-bg')?.remove(); }
+function renderModal() {
+  if (!currentModal) return;
+  const { loc, cat, check } = currentModal;
+  const hasData = locHasCat(loc, cat);
+  const existing = document.querySelector('.modal-bg');
+  if (existing) existing.remove();
+
+  const div = document.createElement('div');
+  div.className = 'modal-bg';
+  div.onclick = (e) => { if (e.target === div) closeModal(); };
+
+  const statuses = [
+    { id: 'ok', label: '✓ Verificado OK', cls: 's-ok' },
+    { id: 'issue', label: '⚠ Con observaciones', cls: 's-issue' },
+    { id: 'nodata', label: '✗ Faltan datos', cls: 's-nodata' },
+    { id: 'na', label: '— No aplica', cls: 's-na' },
+    { id: 'pending', label: '· Pendiente', cls: 's-pending' },
+  ];
+
+  div.innerHTML = `<div class="modal">
+    <h3>${loc}</h3>
+    <div class="meta">${cat} ${hasData ? '— Datos cargados en el JSON' : '— Sin datos en el JSON'}</div>
+    <div class="status-row">
+      ${statuses.map(s => `<div class="st-btn ${s.cls} ${check.status === s.id ? 'active' : ''}" onclick="setModalStatus('${s.id}')">${s.label}</div>`).join('')}
+    </div>
+    <label style="font-size:11px;font-weight:600;color:var(--muted)">OBSERVACIONES</label>
+    <textarea id="modal-obs" placeholder="Anotar diferencias, errores encontrados, fuente consultada...">${check.obs || ''}</textarea>
+    ${check.log && check.log.length ? `<div class="log">${check.log.map(l => `<div>${l}</div>`).join('')}</div>` : ''}
+    <div class="modal-actions">
+      <button class="btn btn-outline" onclick="closeModal()">Cancelar</button>
+      <button class="btn btn-navy" onclick="saveModal()">Guardar</button>
+    </div>
+  </div>`;
+  document.body.appendChild(div);
+}
+function setModalStatus(status) {
+  if (currentModal) { currentModal.check.status = status; renderModal(); }
+}
+function saveModal() {
+  if (!currentModal) return;
+  const obs = document.getElementById('modal-obs').value.trim();
+  const { loc, cat, check } = currentModal;
+  const prev = getCheck(loc, cat);
+  const now = new Date().toLocaleString('es-AR', { day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit' });
+  const reviewer = STATE.reviewer || 'Anónimo';
+
+  if (!check.log) check.log = prev.log || [];
+  if (check.status !== prev.status || obs !== (prev.obs || '')) {
+    check.log.push(`${now} — ${reviewer}: ${check.status.toUpperCase()}${obs && obs !== prev.obs ? ' | ' + obs.slice(0, 60) : ''}`);
+  }
+  check.obs = obs;
+  check.reviewer = reviewer;
+  setCheck(loc, cat, check);
+  closeModal();
+  render();
+}
+
+// ═══ EXPORT / IMPORT ═══
+function exportState() {
+  const blob = new Blob([JSON.stringify(STATE, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `verificacion_${new Date().toISOString().slice(0,10)}.json`;
+  a.click();
+}
+function importState() {
+  const input = document.createElement('input');
+  input.type = 'file';
+  input.accept = '.json';
+  input.onchange = async (e) => {
+    try {
+      const text = await e.target.files[0].text();
+      const imported = JSON.parse(text);
+      // Merge: imported overwrites only non-pending entries
+      for (const [key, val] of Object.entries(imported.checks || {})) {
+        const existing = STATE.checks[key];
+        if (!existing || existing.status === 'pending') {
+          STATE.checks[key] = val;
+        } else if (val.status !== 'pending') {
+          // Both have data: keep the most recent log entry
+          const merged = { ...existing };
+          merged.log = [...(existing.log || []), ...(val.log || [])];
+          if (val.status !== existing.status) merged.status = val.status;
+          if (val.obs) merged.obs = val.obs;
+          STATE.checks[key] = merged;
+        }
+      }
+      saveState();
+      render();
+      alert('Importado! Se combinaron ' + Object.keys(imported.checks || {}).length + ' verificaciones.');
+    } catch(err) { alert('Error al importar: ' + err.message); }
+  };
+  input.click();
+}
+function resetState() {
+  if (confirm('¿Seguro? Esto borra TODA la verificación local. Exportá antes si querés guardar una copia.')) {
+    STATE = { reviewer: STATE.reviewer, checks: {}, version: 1 };
+    saveState();
+    render();
+  }
+}
+
+// ═══ RENDER ═══
+function render() {
+  const { municipios, comunas } = getLocalities();
+  const stats = getStats();
+  const pct = stats.total > 0 ? Math.round((stats.ok + stats.na) / stats.total * 100) : 0;
+
+  let h = `
+  <div class="hd">
+    <h1>VERIFICACIÓN DE DATOS ELECTORALES 2023</h1>
+    <div class="sub">Checklist para el equipo — Click en cada celda para verificar</div>
+  </div>
+  <div class="toolbar">
+    <div>
+      <label>Revisor/a</label><br>
+      <input type="text" id="reviewer" value="${STATE.reviewer || ''}" placeholder="Tu nombre"
+        onchange="STATE.reviewer=this.value;saveState()">
+    </div>
+    <div style="margin-left:auto;display:flex;gap:6px">
+      <button class="btn btn-outline btn-sm" onclick="exportState()" title="Descargar estado actual">📥 Exportar</button>
+      <button class="btn btn-outline btn-sm" onclick="importState()" title="Combinar con verificación de otro miembro">📤 Importar</button>
+      <button class="btn btn-outline btn-sm" onclick="resetState()" title="Borrar todo" style="color:var(--red)">🗑️ Reset</button>
+    </div>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="n">${pct}%</div><div class="l">Avance</div></div>
+    <div class="stat ok"><div class="n">${stats.ok}</div><div class="l">✓ Verificados</div></div>
+    <div class="stat warn"><div class="n">${stats.issue}</div><div class="l">⚠ Con obs.</div></div>
+    <div class="stat err"><div class="n">${stats.nodata}</div><div class="l">✗ Faltan</div></div>
+    <div class="stat pend"><div class="n">${stats.pending}</div><div class="l">· Pendientes</div></div>
+    <div class="stat"><div class="n">${stats.na}</div><div class="l">— N/A</div></div>
+  </div>
+  <div class="body">
+    <table>
+      <tr>
+        <th>Localidad</th>
+        ${CATS_ORDER.map(c => `<th title="${c}">${CAT_SHORT[c]}</th>`).join('')}
+      </tr>`;
+
+  function renderGroup(title, locs) {
+    h += `<tr class="section"><td colspan="${CATS_ORDER.length + 1}">${title} (${locs.length})</td></tr>`;
+    locs.forEach(loc => {
+      h += `<tr><td title="${loc}">${loc}</td>`;
+      CATS_ORDER.forEach(cat => {
+        const check = getCheck(loc, cat);
+        const hasData = locHasCat(loc, cat);
+        const cls = check.status + (check.obs ? ' has-obs' : '');
+        h += `<td><div class="cell ${cls}" onclick="openModal('${loc.replace(/'/g,"\\'")}','${cat}')" title="${cat}: ${check.status}${check.obs ? '\n' + check.obs : ''}"></div></td>`;
+      });
+      h += `</tr>`;
+    });
+  }
+
+  renderGroup('MUNICIPIOS', municipios);
+  renderGroup('COMUNAS / COMISIONES DE FOMENTO', comunas);
+
+  h += `</table></div>`;
+  h += `<div class="ft">
+    Leyenda: <strong>✓</strong> Verificado OK · <strong>⚠</strong> Con observaciones · <strong>✗</strong> Faltan datos · <strong>—</strong> No aplica · <strong>·</strong> Pendiente
+    &nbsp;|&nbsp; Borde azul = tiene observaciones escritas
+    &nbsp;|&nbsp; Los datos se guardan en tu navegador (localStorage)
+  </div>`;
+
+  document.getElementById('app').innerHTML = h;
+}
+
+init();
+</script>
+</body>
+</html>
