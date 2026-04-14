@@ -367,204 +367,204 @@
   },
   "2007": {
     "fecha": "16 de septiembre de 2007",
-    "electores": 86528,
-    "participacion": 77.82,
+    "electores": 318252,
+    "participacion": 75.78,
     "formula": "Mario Das Neves - Mario Vargas (Reelectos)",
-    "advertencia": "El dato de Electores Hábiles (86.528) resulta anormalmente bajo respecto de la serie histórica (~250K-440K). Podría tratarse de un dato parcial. Los resultados por partido están siendo verificados.",
+    "advertencia": null,
     "gobernador": {
       "partidos": [
         [
           "JUSTICIALISTA",
-          37460,
-          59.37
+          127818,
+          58.07
         ],
         [
           "PROYECCIÓN VECINAL DE CHUBUT",
-          10476,
-          16.6
+          41061,
+          18.65
         ],
         [
           "U.C.R.",
-          8633,
-          13.68
-        ],
-        [
-          "AFIRMACIÓN P/ UNA REP. IGUALITARIA",
-          3646,
-          5.78
+          29601,
+          13.45
         ],
         [
           "ACCIÓN CHUBUTENSE (PACH)",
-          2876,
-          4.56
+          11372,
+          5.17
+        ],
+        [
+          "AFIRMACIÓN P/ UNA REP. IGUALITARIA",
+          10272,
+          4.67
         ]
       ],
-      "positivos": 63091,
-      "blanco": 2856,
-      "nulos": 1391,
-      "total": 67338
+      "positivos": 220124,
+      "blanco": 16126,
+      "nulos": 4916,
+      "total": 241166
     },
     "diputados": {
       "partidos": [
         [
           "JUSTICIALISTA",
-          34503,
-          54.95,
+          118776,
+          54.72,
           16
         ],
         [
           "PROYECCIÓN VECINAL DE CHUBUT",
-          9762,
-          15.55,
+          38696,
+          17.83,
           5
         ],
         [
           "U.C.R.",
-          8361,
-          13.32,
+          30046,
+          13.84,
           4
         ],
         [
-          "AFIRMACIÓN P/ UNA REP. IGUALITARIA",
-          4549,
-          7.25,
+          "ACCIÓN CHUBUTENSE (PACH)",
+          11542,
+          5.32,
           1
         ],
         [
-          "ACCIÓN CHUBUTENSE (PACH)",
-          2969,
-          4.73,
+          "AFIRMACIÓN P/ UNA REP. IGUALITARIA",
+          11236,
+          5.18,
           1
         ],
         [
           "FRENTE POPULAR",
-          1866,
-          2.97,
+          4402,
+          2.03,
           0
         ],
         [
           "INDEPENDIENTE DE CHUBUT (PICH)",
-          778,
-          1.24,
+          2354,
+          1.08,
           0
         ]
       ],
-      "positivos": 62788,
-      "blanco": 3319,
-      "nulos": 1231,
-      "total": 67338,
+      "positivos": 217052,
+      "blanco": 20394,
+      "nulos": 3720,
+      "total": 241166,
       "bancas": 27
     }
   },
   "2003": {
     "fecha": "9 de noviembre de 2003",
-    "electores": 77803,
-    "participacion": 75.72,
+    "electores": 278888,
+    "participacion": 75.28,
     "formula": "Mario Das Neves - Mario Vargas",
-    "advertencia": "El dato de Electores Hábiles (77.803) resulta anormalmente bajo respecto de la serie histórica (~250K-440K). Podría tratarse de un dato parcial. Los resultados por partido están siendo verificados.",
+    "advertencia": null,
     "gobernador": {
       "partidos": [
         [
           "JUSTICIALISTA",
-          23283,
-          44.19
+          84379,
+          45.59
         ],
         [
           "U.C.R.",
-          23124,
-          43.89
+          76205,
+          41.17
         ],
         [
           "ACCIÓN CHUBUTENSE (P.A.CH.)",
-          3200,
-          6.07
+          12976,
+          7.01
         ],
         [
           "AL. CORRIENTE CHUBUTENSE",
-          1644,
-          3.12
-        ],
-        [
-          "SOCIALISTA AUT. DEL CHUBUT",
-          443,
-          0.84
+          5309,
+          2.87
         ],
         [
           "POLO SOCIAL",
-          372,
-          0.71
+          1884,
+          1.02
         ],
         [
           "HUMANISTA",
-          362,
-          0.69
+          1770,
+          0.96
         ],
         [
           "COMUNISTA",
-          261,
-          0.5
+          1383,
+          0.75
+        ],
+        [
+          "SOCIALISTA AUT. DEL CHUBUT",
+          1183,
+          0.64
         ]
       ],
-      "positivos": 52689,
-      "blanco": 5390,
-      "nulos": 836,
-      "total": 58915
+      "positivos": 185089,
+      "blanco": 22358,
+      "nulos": 2501,
+      "total": 209948
     },
     "diputados": {
       "partidos": [
         [
-          "U.C.R.",
-          19956,
-          43.74,
-          9
-        ],
-        [
           "JUSTICIALISTA",
-          18876,
-          41.37,
+          73079,
+          44.39,
           16
         ],
         [
+          "U.C.R.",
+          65101,
+          39.54,
+          9
+        ],
+        [
           "ACCIÓN CHUBUTENSE (P.A.CH.)",
-          3345,
-          7.33,
+          14073,
+          8.55,
           2
         ],
         [
           "AL. CORRIENTE CHUBUTENSE",
-          1751,
-          3.84,
-          0
-        ],
-        [
-          "SOCIALISTA AUT. DEL CHUBUT",
-          574,
-          1.26,
+          5653,
+          3.43,
           0
         ],
         [
           "POLO SOCIAL",
-          431,
-          0.94,
+          2008,
+          1.22,
           0
         ],
         [
           "HUMANISTA",
-          415,
-          0.91,
+          1937,
+          1.18,
           0
         ],
         [
           "COMUNISTA",
-          277,
-          0.61,
+          1424,
+          0.86,
+          0
+        ],
+        [
+          "SOCIALISTA AUT. DEL CHUBUT",
+          1364,
+          0.83,
           0
         ]
       ],
-      "positivos": 45625,
-      "blanco": 12446,
-      "nulos": 844,
-      "total": 58915,
+      "positivos": 164639,
+      "blanco": 42778,
+      "nulos": 2531,
+      "total": 209948,
       "bancas": 27
     }
   },
