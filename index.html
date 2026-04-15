@@ -251,7 +251,7 @@ function renderTable(loc,cat,showHeader){
   const tBancas=isConc?getTotalBancas(loc):null;
   let h=`<table class="T">`;
   if(showHeader)h+=`<tr class="sec"><td colspan="${isConc?5:4}">${CLAB[cat]||cat} — ${loc.toUpperCase()}${tBancas?" ("+tBancas+" bancas)":""}</td></tr>`;
-  h+=`<tr><th style="width:${isConc?"40%":"50%"}; color:#000000;">Partido / Alianza</th><th class="r">Votos</th><th class="c">%</th>`;
+  h+=`<tr><th style="width:${isConc?"40%":"50%"}; color:#000000">Partido / Alianza</th><th class="r">Votos</th><th class="c">%</th>`;
   if(isConc)h+=`<th class="c">Bancas</th>`;
   h+=`</tr>`;
   afirm.forEach((x,i)=>{
