@@ -13,7 +13,7 @@
   --warn:#e67e22; --warn-bg:#fef9e7;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);padding:20px 12px}
+body{background:transparent;padding:20px 12px}
 .R{font-family:'Source Sans 3','Segoe UI',sans-serif;color:var(--text);max-width:1100px;margin:0 auto}
 .R-hd{background:linear-gradient(135deg,#2d4470,var(--navy-light));color:#fff;padding:24px 28px;border-radius:8px 8px 0 0}
 .R-hd h1{font-size:22px;font-weight:700;letter-spacing:.5px;margin-bottom:2px}
@@ -470,7 +470,6 @@ function render(){
     h+=`</div>`;
   }
 
-  h+=`<div class="R-ft">Fuente: datosoficiales.juschubut.gov.ar — Escrutinio Definitivo · Recopilación histórica: Secretaría Electoral Permanente del Chubut</div>`;
   app.innerHTML=h;
 }
 
