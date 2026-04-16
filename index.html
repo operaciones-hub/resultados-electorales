@@ -133,12 +133,12 @@ async function init() {
 // ═══════════════════════════════════════════════════
 // CONSTANTES Y ESTADO
 // ═══════════════════════════════════════════════════
-const CATS=["Intendente","Concejales","Jefe Comunal","Consejo de la Magistratura","Tribunal de Cuentas","Juez de Paz"];
-const CLAB={"Intendente":"INTENDENTE","Concejales":"CONCEJALES","Jefe Comunal":"JEFE COMUNAL","Consejo de la Magistratura":"REP. CONSEJO DE LA MAGISTRATURA","Tribunal de Cuentas":"TRIBUNAL DE CUENTAS","Juez de Paz":"JUEZ DE PAZ"};
-const YRS=[2023,2019,2015,2011,2007,2003,1999,1995,1991,1987,1983];
-const MUN_AVAIL=[2023];
+const CATS=["Intendente","Concejales","Jefe Comunal","Consejo de la Magistratura","Tribunal de Cuentas","Juez de Paz","Referéndum Provincial","Referéndum Municipal"];
+const CLAB={"Intendente":"INTENDENTE","Concejales":"CONCEJALES","Jefe Comunal":"JEFE COMUNAL","Consejo de la Magistratura":"CONSEJO DE LA MAGISTRATURA","Tribunal de Cuentas":"TRIBUNAL DE CUENTAS","Juez de Paz":"JUEZ DE PAZ","Referéndum Provincial":"REFERÉNDUM PROVINCIAL","Referéndum Municipal":"REFERÉNDUM MUNICIPAL"};
+const YRS=[2025,2023,2019,2015,2011,2007,2003,1999,1995,1991,1987,1983];
+const MUN_AVAIL=[2025,2023];
 
-let S={year:2023,nivel:"provincial",mode:"detalle",loc:"",cmp:[],cat:"Intendente"};
+let S={year:2025,nivel:"provincial",mode:"detalle",loc:"",cmp:[],cat:"Intendente"};
 
 // ═══════════════════════════════════════════════════
 // HELPERS
@@ -274,6 +274,53 @@ function renderTable(loc,cat,showHeader){
 }
 
 // ═══════════════════════════════════════════════════
+// RENDER: TABLA REFERÉNDUM
+// ═══════════════════════════════════════════════════
+function renderRefTable(ref, showLocs) {
+  let h = `<table class="T">`;
+  h += `<tr class="sec"><td colspan="3">${ref.titulo}</td></tr>`;
+  h += `<tr><td colspan="3" style="font-size:13px;color:var(--muted);padding:12px;background:#f8f9fa"><em>${ref.pregunta}</em></td></tr>`;
+  h += `<tr><th style="width:50%">Opción</th><th class="r">Votos</th><th class="c">%</th></tr>`;
+  ref.partidos.forEach((row, i) => {
+    const isW = i === 0 && row[2] > 50;
+    const isNo = i === 1 && row[2] > 50;
+    h += `<tr class="${isW||isNo?'w':''}"><td><strong>${row[0]}</strong></td>`;
+    h += `<td class="r" style="font-weight:700">${fmt(row[1])}</td>`;
+    h += `<td class="c">${row[2].toFixed(2)}%</td></tr>`;
+  });
+  h += `<tr class="sub"><td>VOTOS POSITIVOS</td><td class="r">${fmt(ref.positivos)}</td><td class="c">${ref.total>0?(ref.positivos/ref.total*100).toFixed(2):0}%</td></tr>`;
+  h += `<tr class="bk"><td>VOTOS EN BLANCO</td><td class="r">${fmt(ref.blanco)}</td><td class="c">${ref.total>0?(ref.blanco/ref.total*100).toFixed(2):0}%</td></tr>`;
+  h += `<tr class="bk"><td>VOTOS ANULADOS</td><td class="r">${fmt(ref.nulos)}</td><td class="c">${ref.total>0?(ref.nulos/ref.total*100).toFixed(2):0}%</td></tr>`;
+  h += `<tr class="tot"><td>TOTAL VOTANTES</td><td class="r">${fmt(ref.total)}</td><td class="c">100%</td></tr>`;
+  h += `</table>`;
+  h += `<div style="text-align:center;margin:8px 0 16px"><span style="display:inline-block;background:${ref.resultado==='APROBADO'?'var(--green)':'#c0392b'};color:#fff;padding:6px 20px;border-radius:20px;font-size:13px;font-weight:700;letter-spacing:.5px">${ref.resultado}</span></div>`;
+  return h;
+}
+
+function renderRefLocalidades(ref) {
+  if (!ref.localidades || !ref.localidades.length) return '';
+  const sorted = [...ref.localidades].sort((a,b) => a.loc.localeCompare(b.loc,'es'));
+  let h = `<table class="T">`;
+  h += `<tr class="sec"><td colspan="6">RESULTADOS POR LOCALIDAD</td></tr>`;
+  h += `<tr><th style="width:30%">Localidad</th><th class="r">SÍ</th><th class="c">%</th><th class="r">NO</th><th class="c">%</th><th class="r">Total</th></tr>`;
+  sorted.forEach(loc => {
+    const tot = loc.si + loc.no + loc.bl + loc.nu;
+    const pos = loc.si + loc.no;
+    const pctSi = pos > 0 ? (loc.si / pos * 100) : 0;
+    const pctNo = pos > 0 ? (loc.no / pos * 100) : 0;
+    const siWins = loc.si > loc.no;
+    h += `<tr><td><strong>${loc.loc}</strong></td>`;
+    h += `<td class="r" style="${siWins?'font-weight:700;color:var(--green)':''}">${fmt(loc.si)}</td>`;
+    h += `<td class="c" style="${siWins?'font-weight:600;color:var(--green)':''}">${pctSi.toFixed(1)}%</td>`;
+    h += `<td class="r" style="${!siWins?'font-weight:700;color:#c0392b':''}">${fmt(loc.no)}</td>`;
+    h += `<td class="c" style="${!siWins?'font-weight:600;color:#c0392b':''}">${pctNo.toFixed(1)}%</td>`;
+    h += `<td class="r">${fmt(tot)}</td></tr>`;
+  });
+  h += `</table>`;
+  return h;
+}
+
+// ═══════════════════════════════════════════════════
 // RENDER PRINCIPAL
 // ═══════════════════════════════════════════════════
 function render(){
@@ -282,6 +329,11 @@ function render(){
   const isMun = S.nivel === "municipal";
   const yearAvail = isProv ? YRS : MUN_AVAIL;
   if (!yearAvail.includes(S.year)) S.year = yearAvail[0];
+  // Fallback: if current category has no data for this year, switch to first available
+  if (isMun) {
+    const availCats = CATS.filter(c => locsFor(S.year, c).length > 0);
+    if (availCats.length > 0 && !availCats.includes(S.cat)) S.cat = availCats[0];
+  }
   const lfc = isMun ? locsFor(S.year, S.cat) : [];
 
   let h = `
@@ -307,14 +359,26 @@ function render(){
     h += `<div class="R-body">`;
     if (pData) {
       h += `<div class="prov-header">`;
-      h += `<h2>Elecciones Provinciales ${S.year}</h2>`;
+      h += `<h2>${pData.tipo || 'Elecciones Provinciales'} ${S.year}</h2>`;
       h += `<div class="meta"><span>📅 ${pData.fecha}</span><span>📋 Electores: ${fmt(pData.electores)}</span><span>🗳️ Participación: ${pData.participacion.toFixed(2)}%</span></div>`;
-      h += `<div class="formula">Fórmula electa: <strong>${pData.formula}</strong></div></div>`;
-      if (pData.advertencia) h += `<div class="warn-box"><span class="wi">⚠️</span><span>${pData.advertencia}</span></div>`;
-      h += `<div class="prov-dual">`;
-      h += `<div>${renderProvTable(pData.gobernador, "GOBERNADOR Y VICEGOBERNADOR", false, "Gobernador")}</div>`;
-      h += `<div>${renderProvTable(pData.diputados, "DIPUTADOS PROVINCIALES (" + (pData.diputados.bancas || 27) + " bancas)", true, "Diputados")}</div>`;
+      if (pData.formula) h += `<div class="formula">Fórmula electa: <strong>${pData.formula}</strong></div>`;
       h += `</div>`;
+      if (pData.advertencia) h += `<div class="warn-box"><span class="wi">⚠️</span><span>${pData.advertencia}</span></div>`;
+
+      if (pData.referendum_provincial) {
+        h += renderRefTable(pData.referendum_provincial);
+        if (pData.cm_esquel || pData.cm_trelew) {
+          h += `<div class="prov-dual">`;
+          if (pData.cm_esquel) h += `<div>${renderProvTable(pData.cm_esquel, "CONSEJO DE LA MAGISTRATURA — CIRC. ESQUEL", false, "CM Circ. Esquel")}</div>`;
+          if (pData.cm_trelew) h += `<div>${renderProvTable(pData.cm_trelew, "CONSEJO DE LA MAGISTRATURA — CIRC. TRELEW", false, "CM Circ. Trelew")}</div>`;
+          h += `</div>`;
+        }
+      } else {
+        h += `<div class="prov-dual">`;
+        h += `<div>${renderProvTable(pData.gobernador, "GOBERNADOR Y VICEGOBERNADOR", false, "Gobernador")}</div>`;
+        h += `<div>${renderProvTable(pData.diputados, "DIPUTADOS PROVINCIALES (" + (pData.diputados.bancas || 27) + " bancas)", true, "Diputados")}</div>`;
+        h += `</div>`;
+      }
     } else {
       h += `<div class="empty"><div class="ic">📊</div><div class="mg">Datos provinciales no disponibles para ${S.year}</div></div>`;
     }

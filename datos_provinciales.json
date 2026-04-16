@@ -1102,5 +1102,110 @@
       "total": 117079,
       "bancas": 27
     }
+  },
+  "2025": {
+    "fecha": "26 de octubre de 2025",
+    "electores": 482316,
+    "participacion": 70.67,
+    "formula": null,
+    "tipo": "Elecciones Legislativas + Referéndums",
+    "advertencia": null,
+    "referendum_provincial": {
+      "titulo": "Referéndum Provincial — Eliminación de Fueros",
+      "pregunta": "¿Aprueba la eliminación de los fueros a funcionarios, magistrados y dirigentes sindicales? (Arts. 247 y 248 de la Constitución Provincial)",
+      "resultado": "APROBADO",
+      "partidos": [
+        [
+          "SÍ",
+          204191,
+          63.68
+        ],
+        [
+          "NO",
+          116505,
+          36.32
+        ]
+      ],
+      "positivos": 320696,
+      "blanco": 16104,
+      "nulos": 4042,
+      "total": 340842
+    },
+    "cm_esquel": {
+      "partidos": [
+        [
+          "GEN",
+          1427,
+          3.19
+        ],
+        [
+          "FRENTE UNIDOS PODEMOS",
+          13683,
+          30.56
+        ],
+        [
+          "DESPIERTA CHUBUT",
+          10533,
+          23.53
+        ],
+        [
+          "LA LIBERTAD AVANZA",
+          13410,
+          29.96
+        ],
+        [
+          "PARTIDO INDEPENDIENTE DEL CHUBUT",
+          1579,
+          3.53
+        ],
+        [
+          "LA FUERZA DEL TRABAJO CHUBUTENSE",
+          4135,
+          9.24
+        ]
+      ],
+      "positivos": 44767,
+      "blanco": 3863,
+      "nulos": 2580,
+      "total": 51210
+    },
+    "cm_trelew": {
+      "partidos": [
+        [
+          "GEN",
+          2674,
+          3.14
+        ],
+        [
+          "FRENTE UNIDOS PODEMOS",
+          17015,
+          19.99
+        ],
+        [
+          "DESPIERTA CHUBUT",
+          18908,
+          22.21
+        ],
+        [
+          "LA LIBERTAD AVANZA",
+          28566,
+          33.56
+        ],
+        [
+          "PARTIDO INDEPENDIENTE DEL CHUBUT",
+          4170,
+          4.9
+        ],
+        [
+          "LA FUERZA DEL TRABAJO CHUBUTENSE",
+          13782,
+          16.19
+        ]
+      ],
+      "positivos": 85115,
+      "blanco": 5625,
+      "nulos": 4044,
+      "total": 94784
+    }
   }
 }

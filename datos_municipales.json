@@ -3690,6 +3690,4020 @@
           ]
         ]
       }
+    },
+    "2025": {
+      "28 de Julio": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            279,
+            70.28,
+            false
+          ],
+          [
+            "NO",
+            "",
+            118,
+            29.72,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            23,
+            5.42,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            4,
+            0.94,
+            true
+          ]
+        ],
+        "Consejo de la Magistratura": [
+          [
+            "GEN",
+            "",
+            5,
+            1.33,
+            false
+          ],
+          [
+            "FRENTE UNIDOS PODEMOS",
+            "",
+            61,
+            16.27,
+            false
+          ],
+          [
+            "DESPIERTA CHUBUT",
+            "",
+            100,
+            26.67,
+            false
+          ],
+          [
+            "LA LIBERTAD AVANZA",
+            "",
+            159,
+            42.4,
+            false
+          ],
+          [
+            "PARTIDO INDEPENDIENTE DEL CHUBUT",
+            "",
+            11,
+            2.93,
+            false
+          ],
+          [
+            "LA FUERZA DEL TRABAJO CHUBUTENSE",
+            "",
+            39,
+            10.4,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            34,
+            8.02,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            15,
+            3.54,
+            true
+          ]
+        ]
+      },
+      "Aldea Apeleg": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            62,
+            77.5,
+            false
+          ],
+          [
+            "NO",
+            "",
+            18,
+            22.5,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            5,
+            5.81,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            1,
+            1.16,
+            true
+          ]
+        ]
+      },
+      "Aldea Beleiro": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            65,
+            59.09,
+            false
+          ],
+          [
+            "NO",
+            "",
+            45,
+            40.91,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            4,
+            3.39,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            4,
+            3.39,
+            true
+          ]
+        ]
+      },
+      "Aldea Epulef": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            72,
+            62.61,
+            false
+          ],
+          [
+            "NO",
+            "",
+            43,
+            37.39,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            14,
+            10.69,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            2,
+            1.53,
+            true
+          ]
+        ],
+        "Consejo de la Magistratura": [
+          [
+            "GEN",
+            "",
+            0,
+            0.0,
+            false
+          ],
+          [
+            "FRENTE UNIDOS PODEMOS",
+            "",
+            46,
+            41.07,
+            false
+          ],
+          [
+            "DESPIERTA CHUBUT",
+            "",
+            47,
+            41.96,
+            false
+          ],
+          [
+            "LA LIBERTAD AVANZA",
+            "",
+            11,
+            9.82,
+            false
+          ],
+          [
+            "PARTIDO INDEPENDIENTE DEL CHUBUT",
+            "",
+            3,
+            2.68,
+            false
+          ],
+          [
+            "LA FUERZA DEL TRABAJO CHUBUTENSE",
+            "",
+            5,
+            4.46,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            16,
+            12.21,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            3,
+            2.29,
+            true
+          ]
+        ]
+      },
+      "Aldea Escolar": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            204,
+            57.46,
+            false
+          ],
+          [
+            "NO",
+            "",
+            151,
+            42.54,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            21,
+            5.51,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            5,
+            1.31,
+            true
+          ]
+        ],
+        "Consejo de la Magistratura": [
+          [
+            "GEN",
+            "",
+            13,
+            3.81,
+            false
+          ],
+          [
+            "FRENTE UNIDOS PODEMOS",
+            "",
+            106,
+            31.09,
+            false
+          ],
+          [
+            "DESPIERTA CHUBUT",
+            "",
+            68,
+            19.94,
+            false
+          ],
+          [
+            "LA LIBERTAD AVANZA",
+            "",
+            109,
+            31.96,
+            false
+          ],
+          [
+            "PARTIDO INDEPENDIENTE DEL CHUBUT",
+            "",
+            15,
+            4.4,
+            false
+          ],
+          [
+            "LA FUERZA DEL TRABAJO CHUBUTENSE",
+            "",
+            30,
+            8.8,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            25,
+            6.56,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            15,
+            3.94,
+            true
+          ]
+        ]
+      },
+      "Alto Río Percy": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            33,
+            46.48,
+            false
+          ],
+          [
+            "NO",
+            "",
+            38,
+            53.52,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            11,
+            12.94,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            3,
+            3.53,
+            true
+          ]
+        ],
+        "Consejo de la Magistratura": [
+          [
+            "GEN",
+            "",
+            0,
+            0.0,
+            false
+          ],
+          [
+            "FRENTE UNIDOS PODEMOS",
+            "",
+            35,
+            47.95,
+            false
+          ],
+          [
+            "DESPIERTA CHUBUT",
+            "",
+            11,
+            15.07,
+            false
+          ],
+          [
+            "LA LIBERTAD AVANZA",
+            "",
+            15,
+            20.55,
+            false
+          ],
+          [
+            "PARTIDO INDEPENDIENTE DEL CHUBUT",
+            "",
+            3,
+            4.11,
+            false
+          ],
+          [
+            "LA FUERZA DEL TRABAJO CHUBUTENSE",
+            "",
+            9,
+            12.33,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            4,
+            4.71,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            8,
+            9.41,
+            true
+          ]
+        ]
+      },
+      "Buen Pasto": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            35,
+            57.38,
+            false
+          ],
+          [
+            "NO",
+            "",
+            26,
+            42.62,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            8,
+            11.59,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            0,
+            0.0,
+            true
+          ]
+        ]
+      },
+      "Camarones": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            485,
+            58.01,
+            false
+          ],
+          [
+            "NO",
+            "",
+            351,
+            41.99,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            49,
+            5.47,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            10,
+            1.12,
+            true
+          ]
+        ]
+      },
+      "Carrenleufu": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            112,
+            50.68,
+            false
+          ],
+          [
+            "NO",
+            "",
+            109,
+            49.32,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            15,
+            6.25,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            4,
+            1.67,
+            true
+          ]
+        ],
+        "Consejo de la Magistratura": [
+          [
+            "GEN",
+            "",
+            6,
+            2.97,
+            false
+          ],
+          [
+            "FRENTE UNIDOS PODEMOS",
+            "",
+            63,
+            31.19,
+            false
+          ],
+          [
+            "DESPIERTA CHUBUT",
+            "",
+            76,
+            37.62,
+            false
+          ],
+          [
+            "LA LIBERTAD AVANZA",
+            "",
+            40,
+            19.8,
+            false
+          ],
+          [
+            "PARTIDO INDEPENDIENTE DEL CHUBUT",
+            "",
+            6,
+            2.97,
+            false
+          ],
+          [
+            "LA FUERZA DEL TRABAJO CHUBUTENSE",
+            "",
+            11,
+            5.45,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            31,
+            12.81,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            9,
+            3.72,
+            true
+          ]
+        ]
+      },
+      "Cerro Centinela": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            91,
+            70.54,
+            false
+          ],
+          [
+            "NO",
+            "",
+            38,
+            29.46,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            24,
+            15.48,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            2,
+            1.29,
+            true
+          ]
+        ],
+        "Consejo de la Magistratura": [
+          [
+            "GEN",
+            "",
+            5,
+            3.91,
+            false
+          ],
+          [
+            "FRENTE UNIDOS PODEMOS",
+            "",
+            23,
+            17.97,
+            false
+          ],
+          [
+            "DESPIERTA CHUBUT",
+            "",
+            74,
+            57.81,
+            false
+          ],
+          [
+            "LA LIBERTAD AVANZA",
+            "",
+            16,
+            12.5,
+            false
+          ],
+          [
+            "PARTIDO INDEPENDIENTE DEL CHUBUT",
+            "",
+            4,
+            3.12,
+            false
+          ],
+          [
+            "LA FUERZA DEL TRABAJO CHUBUTENSE",
+            "",
+            6,
+            4.69,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            21,
+            13.55,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            6,
+            3.87,
+            true
+          ]
+        ]
+      },
+      "Cerro Radal": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            344,
+            60.03,
+            false
+          ],
+          [
+            "NO",
+            "",
+            229,
+            39.97,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            25,
+            4.08,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            14,
+            2.29,
+            true
+          ]
+        ],
+        "Consejo de la Magistratura": [
+          [
+            "GEN",
+            "",
+            12,
+            2.18,
+            false
+          ],
+          [
+            "FRENTE UNIDOS PODEMOS",
+            "",
+            196,
+            35.57,
+            false
+          ],
+          [
+            "DESPIERTA CHUBUT",
+            "",
+            160,
+            29.04,
+            false
+          ],
+          [
+            "LA LIBERTAD AVANZA",
+            "",
+            110,
+            19.96,
+            false
+          ],
+          [
+            "PARTIDO INDEPENDIENTE DEL CHUBUT",
+            "",
+            13,
+            2.36,
+            false
+          ],
+          [
+            "LA FUERZA DEL TRABAJO CHUBUTENSE",
+            "",
+            60,
+            10.89,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            27,
+            4.43,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            32,
+            5.25,
+            true
+          ]
+        ]
+      },
+      "Cholila": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            732,
+            53.67,
+            false
+          ],
+          [
+            "NO",
+            "",
+            632,
+            46.33,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            192,
+            11.98,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            47,
+            2.93,
+            true
+          ]
+        ],
+        "Consejo de la Magistratura": [
+          [
+            "GEN",
+            "",
+            27,
+            2.11,
+            false
+          ],
+          [
+            "FRENTE UNIDOS PODEMOS",
+            "",
+            418,
+            32.73,
+            false
+          ],
+          [
+            "DESPIERTA CHUBUT",
+            "",
+            285,
+            22.32,
+            false
+          ],
+          [
+            "LA LIBERTAD AVANZA",
+            "",
+            358,
+            28.03,
+            false
+          ],
+          [
+            "PARTIDO INDEPENDIENTE DEL CHUBUT",
+            "",
+            40,
+            3.13,
+            false
+          ],
+          [
+            "LA FUERZA DEL TRABAJO CHUBUTENSE",
+            "",
+            149,
+            11.67,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            184,
+            11.55,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            132,
+            8.29,
+            true
+          ]
+        ]
+      },
+      "Colan Conhue": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            64,
+            58.18,
+            false
+          ],
+          [
+            "NO",
+            "",
+            46,
+            41.82,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            29,
+            20.71,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            1,
+            0.71,
+            true
+          ]
+        ],
+        "Consejo de la Magistratura": [
+          [
+            "GEN",
+            "",
+            2,
+            1.8,
+            false
+          ],
+          [
+            "FRENTE UNIDOS PODEMOS",
+            "",
+            40,
+            36.04,
+            false
+          ],
+          [
+            "DESPIERTA CHUBUT",
+            "",
+            29,
+            26.13,
+            false
+          ],
+          [
+            "LA LIBERTAD AVANZA",
+            "",
+            23,
+            20.72,
+            false
+          ],
+          [
+            "PARTIDO INDEPENDIENTE DEL CHUBUT",
+            "",
+            4,
+            3.6,
+            false
+          ],
+          [
+            "LA FUERZA DEL TRABAJO CHUBUTENSE",
+            "",
+            13,
+            11.71,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            25,
+            17.86,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            4,
+            2.86,
+            true
+          ]
+        ]
+      },
+      "Comodoro Rivadavia": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            74089,
+            68.4,
+            false
+          ],
+          [
+            "NO",
+            "",
+            34235,
+            31.6,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            4569,
+            4.01,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            1144,
+            1.0,
+            true
+          ]
+        ]
+      },
+      "Comuna Rural Atilio Viglione": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            75,
+            64.66,
+            false
+          ],
+          [
+            "NO",
+            "",
+            41,
+            35.34,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            8,
+            6.35,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            2,
+            1.59,
+            true
+          ]
+        ],
+        "Consejo de la Magistratura": [
+          [
+            "GEN",
+            "",
+            1,
+            0.92,
+            false
+          ],
+          [
+            "FRENTE UNIDOS PODEMOS",
+            "",
+            31,
+            28.44,
+            false
+          ],
+          [
+            "DESPIERTA CHUBUT",
+            "",
+            30,
+            27.52,
+            false
+          ],
+          [
+            "LA LIBERTAD AVANZA",
+            "",
+            36,
+            33.03,
+            false
+          ],
+          [
+            "PARTIDO INDEPENDIENTE DEL CHUBUT",
+            "",
+            1,
+            0.92,
+            false
+          ],
+          [
+            "LA FUERZA DEL TRABAJO CHUBUTENSE",
+            "",
+            10,
+            9.17,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            13,
+            10.32,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            4,
+            3.17,
+            true
+          ]
+        ]
+      },
+      "Corcovado": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            605,
+            56.97,
+            false
+          ],
+          [
+            "NO",
+            "",
+            457,
+            43.03,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            109,
+            9.14,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            22,
+            1.84,
+            true
+          ]
+        ],
+        "Consejo de la Magistratura": [
+          [
+            "GEN",
+            "",
+            206,
+            20.02,
+            false
+          ],
+          [
+            "FRENTE UNIDOS PODEMOS",
+            "",
+            166,
+            16.13,
+            false
+          ],
+          [
+            "DESPIERTA CHUBUT",
+            "",
+            388,
+            37.71,
+            false
+          ],
+          [
+            "LA LIBERTAD AVANZA",
+            "",
+            207,
+            20.12,
+            false
+          ],
+          [
+            "PARTIDO INDEPENDIENTE DEL CHUBUT",
+            "",
+            10,
+            0.97,
+            false
+          ],
+          [
+            "LA FUERZA DEL TRABAJO CHUBUTENSE",
+            "",
+            52,
+            5.05,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            107,
+            8.97,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            57,
+            4.78,
+            true
+          ]
+        ]
+      },
+      "Cushamen": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            346,
+            51.03,
+            false
+          ],
+          [
+            "NO",
+            "",
+            332,
+            48.97,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            170,
+            19.52,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            23,
+            2.64,
+            true
+          ]
+        ],
+        "Consejo de la Magistratura": [
+          [
+            "GEN",
+            "",
+            16,
+            2.32,
+            false
+          ],
+          [
+            "FRENTE UNIDOS PODEMOS",
+            "",
+            188,
+            27.29,
+            false
+          ],
+          [
+            "DESPIERTA CHUBUT",
+            "",
+            219,
+            31.79,
+            false
+          ],
+          [
+            "LA LIBERTAD AVANZA",
+            "",
+            152,
+            22.06,
+            false
+          ],
+          [
+            "PARTIDO INDEPENDIENTE DEL CHUBUT",
+            "",
+            41,
+            5.95,
+            false
+          ],
+          [
+            "LA FUERZA DEL TRABAJO CHUBUTENSE",
+            "",
+            73,
+            10.6,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            141,
+            16.19,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            41,
+            4.71,
+            true
+          ]
+        ]
+      },
+      "Dique Florentino Ameghino": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            74,
+            63.79,
+            false
+          ],
+          [
+            "NO",
+            "",
+            42,
+            36.21,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            3,
+            2.42,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            5,
+            4.03,
+            true
+          ]
+        ],
+        "Consejo de la Magistratura": [
+          [
+            "GEN",
+            "",
+            0,
+            0,
+            false
+          ],
+          [
+            "FRENTE UNIDOS PODEMOS",
+            "",
+            0,
+            0,
+            false
+          ],
+          [
+            "DESPIERTA CHUBUT",
+            "",
+            0,
+            0,
+            false
+          ],
+          [
+            "LA LIBERTAD AVANZA",
+            "",
+            0,
+            0,
+            false
+          ],
+          [
+            "PARTIDO INDEPENDIENTE DEL CHUBUT",
+            "",
+            0,
+            0,
+            false
+          ],
+          [
+            "LA FUERZA DEL TRABAJO CHUBUTENSE",
+            "",
+            0,
+            0,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            0,
+            0,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            0,
+            0,
+            true
+          ]
+        ]
+      },
+      "Doctor Ricardo Rojas": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            84,
+            70.59,
+            false
+          ],
+          [
+            "NO",
+            "",
+            35,
+            29.41,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            8,
+            6.15,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            3,
+            2.31,
+            true
+          ]
+        ]
+      },
+      "Dolavon": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            1367,
+            63.82,
+            false
+          ],
+          [
+            "NO",
+            "",
+            775,
+            36.18,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            121,
+            5.32,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            12,
+            0.53,
+            true
+          ]
+        ],
+        "Consejo de la Magistratura": [
+          [
+            "GEN",
+            "",
+            56,
+            2.79,
+            false
+          ],
+          [
+            "FRENTE UNIDOS PODEMOS",
+            "",
+            373,
+            18.56,
+            false
+          ],
+          [
+            "DESPIERTA CHUBUT",
+            "",
+            441,
+            21.94,
+            false
+          ],
+          [
+            "LA LIBERTAD AVANZA",
+            "",
+            826,
+            41.09,
+            false
+          ],
+          [
+            "PARTIDO INDEPENDIENTE DEL CHUBUT",
+            "",
+            70,
+            3.48,
+            false
+          ],
+          [
+            "LA FUERZA DEL TRABAJO CHUBUTENSE",
+            "",
+            244,
+            12.14,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            178,
+            7.86,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            78,
+            3.44,
+            true
+          ]
+        ]
+      },
+      "El Escorial": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            13,
+            36.11,
+            false
+          ],
+          [
+            "NO",
+            "",
+            23,
+            63.89,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            0,
+            0.0,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            0,
+            0.0,
+            true
+          ]
+        ]
+      },
+      "El Hoyo": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            1696,
+            61.43,
+            false
+          ],
+          [
+            "NO",
+            "",
+            1065,
+            38.57,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            229,
+            7.54,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            49,
+            1.61,
+            true
+          ]
+        ],
+        "Consejo de la Magistratura": [
+          [
+            "GEN",
+            "",
+            81,
+            3.0,
+            false
+          ],
+          [
+            "FRENTE UNIDOS PODEMOS",
+            "",
+            781,
+            28.94,
+            false
+          ],
+          [
+            "DESPIERTA CHUBUT",
+            "",
+            714,
+            26.45,
+            false
+          ],
+          [
+            "LA LIBERTAD AVANZA",
+            "",
+            791,
+            29.31,
+            false
+          ],
+          [
+            "PARTIDO INDEPENDIENTE DEL CHUBUT",
+            "",
+            79,
+            2.93,
+            false
+          ],
+          [
+            "LA FUERZA DEL TRABAJO CHUBUTENSE",
+            "",
+            253,
+            9.37,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            198,
+            6.52,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            141,
+            4.64,
+            true
+          ]
+        ]
+      },
+      "El Maitén": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            1442,
+            56.68,
+            false
+          ],
+          [
+            "NO",
+            "",
+            1102,
+            43.32,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            309,
+            10.59,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            64,
+            2.19,
+            true
+          ]
+        ],
+        "Consejo de la Magistratura": [
+          [
+            "GEN",
+            "",
+            44,
+            1.84,
+            false
+          ],
+          [
+            "FRENTE UNIDOS PODEMOS",
+            "",
+            549,
+            22.93,
+            false
+          ],
+          [
+            "DESPIERTA CHUBUT",
+            "",
+            590,
+            24.64,
+            false
+          ],
+          [
+            "LA LIBERTAD AVANZA",
+            "",
+            783,
+            32.71,
+            false
+          ],
+          [
+            "PARTIDO INDEPENDIENTE DEL CHUBUT",
+            "",
+            132,
+            5.51,
+            false
+          ],
+          [
+            "LA FUERZA DEL TRABAJO CHUBUTENSE",
+            "",
+            296,
+            12.36,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            340,
+            11.41,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            247,
+            8.29,
+            true
+          ]
+        ]
+      },
+      "El Mirasol": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            10,
+            71.43,
+            false
+          ],
+          [
+            "NO",
+            "",
+            4,
+            28.57,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            0,
+            0.0,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            1,
+            6.67,
+            true
+          ]
+        ],
+        "Consejo de la Magistratura": [
+          [
+            "GEN",
+            "",
+            0,
+            0.0,
+            false
+          ],
+          [
+            "FRENTE UNIDOS PODEMOS",
+            "",
+            5,
+            33.33,
+            false
+          ],
+          [
+            "DESPIERTA CHUBUT",
+            "",
+            4,
+            26.67,
+            false
+          ],
+          [
+            "LA LIBERTAD AVANZA",
+            "",
+            4,
+            26.67,
+            false
+          ],
+          [
+            "PARTIDO INDEPENDIENTE DEL CHUBUT",
+            "",
+            1,
+            6.67,
+            false
+          ],
+          [
+            "LA FUERZA DEL TRABAJO CHUBUTENSE",
+            "",
+            1,
+            6.67,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            0,
+            0.0,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            0,
+            0.0,
+            true
+          ]
+        ]
+      },
+      "Epuyén": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            693,
+            50.33,
+            false
+          ],
+          [
+            "NO",
+            "",
+            684,
+            49.67,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            152,
+            9.81,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            21,
+            1.35,
+            true
+          ]
+        ],
+        "Consejo de la Magistratura": [
+          [
+            "GEN",
+            "",
+            29,
+            2.24,
+            false
+          ],
+          [
+            "FRENTE UNIDOS PODEMOS",
+            "",
+            456,
+            35.16,
+            false
+          ],
+          [
+            "DESPIERTA CHUBUT",
+            "",
+            234,
+            18.04,
+            false
+          ],
+          [
+            "LA LIBERTAD AVANZA",
+            "",
+            337,
+            25.98,
+            false
+          ],
+          [
+            "PARTIDO INDEPENDIENTE DEL CHUBUT",
+            "",
+            78,
+            6.01,
+            false
+          ],
+          [
+            "LA FUERZA DEL TRABAJO CHUBUTENSE",
+            "",
+            163,
+            12.57,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            164,
+            10.59,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            88,
+            5.68,
+            true
+          ]
+        ]
+      },
+      "Esquel": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            10424,
+            53.39,
+            false
+          ],
+          [
+            "NO",
+            "",
+            9099,
+            46.61,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            1298,
+            6.15,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            286,
+            1.36,
+            true
+          ]
+        ],
+        "Consejo de la Magistratura": [
+          [
+            "GEN",
+            "",
+            607,
+            3.23,
+            false
+          ],
+          [
+            "FRENTE UNIDOS PODEMOS",
+            "",
+            6054,
+            32.21,
+            false
+          ],
+          [
+            "DESPIERTA CHUBUT",
+            "",
+            3661,
+            19.48,
+            false
+          ],
+          [
+            "LA LIBERTAD AVANZA",
+            "",
+            6107,
+            32.49,
+            false
+          ],
+          [
+            "PARTIDO INDEPENDIENTE DEL CHUBUT",
+            "",
+            700,
+            3.72,
+            false
+          ],
+          [
+            "LA FUERZA DEL TRABAJO CHUBUTENSE",
+            "",
+            1667,
+            8.87,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            1258,
+            5.97,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            1018,
+            4.83,
+            true
+          ]
+        ]
+      },
+      "Facundo": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            90,
+            61.64,
+            false
+          ],
+          [
+            "NO",
+            "",
+            56,
+            38.36,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            4,
+            2.65,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            1,
+            0.66,
+            true
+          ]
+        ]
+      },
+      "Gaiman": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            2734,
+            63.01,
+            false
+          ],
+          [
+            "NO",
+            "",
+            1605,
+            36.99,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            255,
+            5.48,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            58,
+            1.25,
+            true
+          ]
+        ],
+        "Consejo de la Magistratura": [
+          [
+            "GEN",
+            "",
+            116,
+            2.82,
+            false
+          ],
+          [
+            "FRENTE UNIDOS PODEMOS",
+            "",
+            665,
+            16.18,
+            false
+          ],
+          [
+            "DESPIERTA CHUBUT",
+            "",
+            871,
+            21.2,
+            false
+          ],
+          [
+            "LA LIBERTAD AVANZA",
+            "",
+            1566,
+            38.11,
+            false
+          ],
+          [
+            "PARTIDO INDEPENDIENTE DEL CHUBUT",
+            "",
+            207,
+            5.04,
+            false
+          ],
+          [
+            "LA FUERZA DEL TRABAJO CHUBUTENSE",
+            "",
+            684,
+            16.65,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            323,
+            6.94,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            222,
+            4.77,
+            true
+          ]
+        ]
+      },
+      "Gan Gan": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            212,
+            60.06,
+            false
+          ],
+          [
+            "NO",
+            "",
+            141,
+            39.94,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            29,
+            7.46,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            7,
+            1.8,
+            true
+          ]
+        ]
+      },
+      "Gastre": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            217,
+            70.23,
+            false
+          ],
+          [
+            "NO",
+            "",
+            92,
+            29.77,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            44,
+            12.02,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            13,
+            3.55,
+            true
+          ]
+        ]
+      },
+      "Gobernador Costa": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            714,
+            59.2,
+            false
+          ],
+          [
+            "NO",
+            "",
+            492,
+            40.8,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            118,
+            8.76,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            23,
+            1.71,
+            true
+          ]
+        ],
+        "Consejo de la Magistratura": [
+          [
+            "GEN",
+            "",
+            23,
+            1.97,
+            false
+          ],
+          [
+            "FRENTE UNIDOS PODEMOS",
+            "",
+            237,
+            20.29,
+            false
+          ],
+          [
+            "DESPIERTA CHUBUT",
+            "",
+            411,
+            35.19,
+            false
+          ],
+          [
+            "LA LIBERTAD AVANZA",
+            "",
+            273,
+            23.37,
+            false
+          ],
+          [
+            "PARTIDO INDEPENDIENTE DEL CHUBUT",
+            "",
+            27,
+            2.31,
+            false
+          ],
+          [
+            "LA FUERZA DEL TRABAJO CHUBUTENSE",
+            "",
+            197,
+            16.87,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            121,
+            8.99,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            57,
+            4.23,
+            true
+          ]
+        ]
+      },
+      "Gualjaina": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            511,
+            57.16,
+            false
+          ],
+          [
+            "NO",
+            "",
+            383,
+            42.84,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            120,
+            11.64,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            17,
+            1.65,
+            true
+          ]
+        ],
+        "Consejo de la Magistratura": [
+          [
+            "GEN",
+            "",
+            17,
+            2.0,
+            false
+          ],
+          [
+            "FRENTE UNIDOS PODEMOS",
+            "",
+            315,
+            37.1,
+            false
+          ],
+          [
+            "DESPIERTA CHUBUT",
+            "",
+            258,
+            30.39,
+            false
+          ],
+          [
+            "LA LIBERTAD AVANZA",
+            "",
+            170,
+            20.02,
+            false
+          ],
+          [
+            "PARTIDO INDEPENDIENTE DEL CHUBUT",
+            "",
+            20,
+            2.36,
+            false
+          ],
+          [
+            "LA FUERZA DEL TRABAJO CHUBUTENSE",
+            "",
+            69,
+            8.13,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            146,
+            14.16,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            36,
+            3.49,
+            true
+          ]
+        ]
+      },
+      "José de San Martín": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            561,
+            59.49,
+            false
+          ],
+          [
+            "NO",
+            "",
+            382,
+            40.51,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            92,
+            8.81,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            9,
+            0.86,
+            true
+          ]
+        ],
+        "Consejo de la Magistratura": [
+          [
+            "GEN",
+            "",
+            22,
+            2.46,
+            false
+          ],
+          [
+            "FRENTE UNIDOS PODEMOS",
+            "",
+            209,
+            23.33,
+            false
+          ],
+          [
+            "DESPIERTA CHUBUT",
+            "",
+            277,
+            30.92,
+            false
+          ],
+          [
+            "LA LIBERTAD AVANZA",
+            "",
+            263,
+            29.35,
+            false
+          ],
+          [
+            "PARTIDO INDEPENDIENTE DEL CHUBUT",
+            "",
+            25,
+            2.79,
+            false
+          ],
+          [
+            "LA FUERZA DEL TRABAJO CHUBUTENSE",
+            "",
+            100,
+            11.16,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            101,
+            9.67,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            47,
+            4.5,
+            true
+          ]
+        ]
+      },
+      "Lago Blanco": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            77,
+            73.33,
+            false
+          ],
+          [
+            "NO",
+            "",
+            28,
+            26.67,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            11,
+            9.48,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            0,
+            0.0,
+            true
+          ]
+        ]
+      },
+      "Lago Puelo": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            2123,
+            58.2,
+            false
+          ],
+          [
+            "NO",
+            "",
+            1525,
+            41.8,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            172,
+            4.4,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            86,
+            2.2,
+            true
+          ]
+        ],
+        "Consejo de la Magistratura": [
+          [
+            "GEN",
+            "",
+            84,
+            2.39,
+            false
+          ],
+          [
+            "FRENTE UNIDOS PODEMOS",
+            "",
+            1187,
+            33.77,
+            false
+          ],
+          [
+            "DESPIERTA CHUBUT",
+            "",
+            908,
+            25.83,
+            false
+          ],
+          [
+            "LA LIBERTAD AVANZA",
+            "",
+            940,
+            26.74,
+            false
+          ],
+          [
+            "PARTIDO INDEPENDIENTE DEL CHUBUT",
+            "",
+            126,
+            3.58,
+            false
+          ],
+          [
+            "LA FUERZA DEL TRABAJO CHUBUTENSE",
+            "",
+            270,
+            7.68,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            216,
+            5.52,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            181,
+            4.63,
+            true
+          ]
+        ]
+      },
+      "Lago Rosario": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            107,
+            50.47,
+            false
+          ],
+          [
+            "NO",
+            "",
+            105,
+            49.53,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            20,
+            8.37,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            7,
+            2.93,
+            true
+          ]
+        ],
+        "Consejo de la Magistratura": [
+          [
+            "GEN",
+            "",
+            13,
+            6.7,
+            false
+          ],
+          [
+            "FRENTE UNIDOS PODEMOS",
+            "",
+            57,
+            29.38,
+            false
+          ],
+          [
+            "DESPIERTA CHUBUT",
+            "",
+            55,
+            28.35,
+            false
+          ],
+          [
+            "LA LIBERTAD AVANZA",
+            "",
+            33,
+            17.01,
+            false
+          ],
+          [
+            "PARTIDO INDEPENDIENTE DEL CHUBUT",
+            "",
+            7,
+            3.61,
+            false
+          ],
+          [
+            "LA FUERZA DEL TRABAJO CHUBUTENSE",
+            "",
+            29,
+            14.95,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            22,
+            9.21,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            23,
+            9.62,
+            true
+          ]
+        ]
+      },
+      "Lagunita Salada": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            75,
+            71.43,
+            false
+          ],
+          [
+            "NO",
+            "",
+            30,
+            28.57,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            20,
+            15.62,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            3,
+            2.34,
+            true
+          ]
+        ]
+      },
+      "Las Golondrinas": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            455,
+            53.03,
+            false
+          ],
+          [
+            "NO",
+            "",
+            403,
+            46.97,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            47,
+            5.13,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            12,
+            1.31,
+            true
+          ]
+        ],
+        "Consejo de la Magistratura": [
+          [
+            "GEN",
+            "",
+            12,
+            1.41,
+            false
+          ],
+          [
+            "FRENTE UNIDOS PODEMOS",
+            "",
+            368,
+            43.14,
+            false
+          ],
+          [
+            "DESPIERTA CHUBUT",
+            "",
+            138,
+            16.18,
+            false
+          ],
+          [
+            "LA LIBERTAD AVANZA",
+            "",
+            236,
+            27.67,
+            false
+          ],
+          [
+            "PARTIDO INDEPENDIENTE DEL CHUBUT",
+            "",
+            39,
+            4.57,
+            false
+          ],
+          [
+            "LA FUERZA DEL TRABAJO CHUBUTENSE",
+            "",
+            60,
+            7.03,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            40,
+            4.36,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            24,
+            2.62,
+            true
+          ]
+        ]
+      },
+      "Las Plumas": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            175,
+            55.38,
+            false
+          ],
+          [
+            "NO",
+            "",
+            141,
+            44.62,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            26,
+            7.45,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            7,
+            2.01,
+            true
+          ]
+        ],
+        "Consejo de la Magistratura": [
+          [
+            "GEN",
+            "",
+            10,
+            3.45,
+            false
+          ],
+          [
+            "FRENTE UNIDOS PODEMOS",
+            "",
+            83,
+            28.62,
+            false
+          ],
+          [
+            "DESPIERTA CHUBUT",
+            "",
+            113,
+            38.97,
+            false
+          ],
+          [
+            "LA LIBERTAD AVANZA",
+            "",
+            53,
+            18.28,
+            false
+          ],
+          [
+            "PARTIDO INDEPENDIENTE DEL CHUBUT",
+            "",
+            8,
+            2.76,
+            false
+          ],
+          [
+            "LA FUERZA DEL TRABAJO CHUBUTENSE",
+            "",
+            23,
+            7.93,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            48,
+            13.71,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            12,
+            3.43,
+            true
+          ]
+        ]
+      },
+      "Los Altares": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            54,
+            49.54,
+            false
+          ],
+          [
+            "NO",
+            "",
+            55,
+            50.46,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            16,
+            12.8,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            0,
+            0.0,
+            true
+          ]
+        ],
+        "Consejo de la Magistratura": [
+          [
+            "GEN",
+            "",
+            2,
+            2.0,
+            false
+          ],
+          [
+            "FRENTE UNIDOS PODEMOS",
+            "",
+            40,
+            40.0,
+            false
+          ],
+          [
+            "DESPIERTA CHUBUT",
+            "",
+            33,
+            33.0,
+            false
+          ],
+          [
+            "LA LIBERTAD AVANZA",
+            "",
+            20,
+            20.0,
+            false
+          ],
+          [
+            "PARTIDO INDEPENDIENTE DEL CHUBUT",
+            "",
+            1,
+            1.0,
+            false
+          ],
+          [
+            "LA FUERZA DEL TRABAJO CHUBUTENSE",
+            "",
+            4,
+            4.0,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            20,
+            16.0,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            5,
+            4.0,
+            true
+          ]
+        ]
+      },
+      "Los Cipreses": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            63,
+            53.39,
+            false
+          ],
+          [
+            "NO",
+            "",
+            55,
+            46.61,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            11,
+            8.03,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            8,
+            5.84,
+            true
+          ]
+        ],
+        "Consejo de la Magistratura": [
+          [
+            "GEN",
+            "",
+            3,
+            2.52,
+            false
+          ],
+          [
+            "FRENTE UNIDOS PODEMOS",
+            "",
+            43,
+            36.13,
+            false
+          ],
+          [
+            "DESPIERTA CHUBUT",
+            "",
+            21,
+            17.65,
+            false
+          ],
+          [
+            "LA LIBERTAD AVANZA",
+            "",
+            41,
+            34.45,
+            false
+          ],
+          [
+            "PARTIDO INDEPENDIENTE DEL CHUBUT",
+            "",
+            2,
+            1.68,
+            false
+          ],
+          [
+            "LA FUERZA DEL TRABAJO CHUBUTENSE",
+            "",
+            9,
+            7.56,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            11,
+            8.03,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            7,
+            5.11,
+            true
+          ]
+        ]
+      },
+      "Paraje Entre Ríos": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            395,
+            53.02,
+            false
+          ],
+          [
+            "NO",
+            "",
+            350,
+            46.98,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            30,
+            3.82,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            10,
+            1.27,
+            true
+          ]
+        ],
+        "Consejo de la Magistratura": [
+          [
+            "GEN",
+            "",
+            16,
+            2.24,
+            false
+          ],
+          [
+            "FRENTE UNIDOS PODEMOS",
+            "",
+            278,
+            38.99,
+            false
+          ],
+          [
+            "DESPIERTA CHUBUT",
+            "",
+            138,
+            19.35,
+            false
+          ],
+          [
+            "LA LIBERTAD AVANZA",
+            "",
+            180,
+            25.25,
+            false
+          ],
+          [
+            "PARTIDO INDEPENDIENTE DEL CHUBUT",
+            "",
+            29,
+            4.07,
+            false
+          ],
+          [
+            "LA FUERZA DEL TRABAJO CHUBUTENSE",
+            "",
+            72,
+            10.1,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            42,
+            5.35,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            30,
+            3.82,
+            true
+          ]
+        ]
+      },
+      "Paso de Indios": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            433,
+            57.66,
+            false
+          ],
+          [
+            "NO",
+            "",
+            318,
+            42.34,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            69,
+            8.27,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            14,
+            1.68,
+            true
+          ]
+        ],
+        "Consejo de la Magistratura": [
+          [
+            "GEN",
+            "",
+            12,
+            1.63,
+            false
+          ],
+          [
+            "FRENTE UNIDOS PODEMOS",
+            "",
+            164,
+            22.28,
+            false
+          ],
+          [
+            "DESPIERTA CHUBUT",
+            "",
+            275,
+            37.36,
+            false
+          ],
+          [
+            "LA LIBERTAD AVANZA",
+            "",
+            144,
+            19.57,
+            false
+          ],
+          [
+            "PARTIDO INDEPENDIENTE DEL CHUBUT",
+            "",
+            14,
+            1.9,
+            false
+          ],
+          [
+            "LA FUERZA DEL TRABAJO CHUBUTENSE",
+            "",
+            127,
+            17.26,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            59,
+            7.07,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            39,
+            4.68,
+            true
+          ]
+        ]
+      },
+      "Paso del Sapo": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            168,
+            68.29,
+            false
+          ],
+          [
+            "NO",
+            "",
+            78,
+            31.71,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            35,
+            12.07,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            9,
+            3.1,
+            true
+          ]
+        ],
+        "Consejo de la Magistratura": [
+          [
+            "GEN",
+            "",
+            8,
+            3.19,
+            false
+          ],
+          [
+            "FRENTE UNIDOS PODEMOS",
+            "",
+            68,
+            27.09,
+            false
+          ],
+          [
+            "DESPIERTA CHUBUT",
+            "",
+            84,
+            33.47,
+            false
+          ],
+          [
+            "LA LIBERTAD AVANZA",
+            "",
+            71,
+            28.29,
+            false
+          ],
+          [
+            "PARTIDO INDEPENDIENTE DEL CHUBUT",
+            "",
+            5,
+            1.99,
+            false
+          ],
+          [
+            "LA FUERZA DEL TRABAJO CHUBUTENSE",
+            "",
+            15,
+            5.98,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            32,
+            11.03,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            7,
+            2.41,
+            true
+          ]
+        ]
+      },
+      "Puerto Madryn": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            35126,
+            64.17,
+            false
+          ],
+          [
+            "NO",
+            "",
+            19610,
+            35.83,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            2241,
+            3.88,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            785,
+            1.36,
+            true
+          ]
+        ],
+        "Referéndum Municipal": [
+          [
+            "SÍ",
+            "",
+            20177,
+            36.52,
+            false
+          ],
+          [
+            "NO",
+            "",
+            35065,
+            63.48,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            1796,
+            3.11,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            663,
+            1.15,
+            true
+          ]
+        ]
+      },
+      "Puerto Pirámides": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            310,
+            65.4,
+            false
+          ],
+          [
+            "NO",
+            "",
+            164,
+            34.6,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            20,
+            3.98,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            8,
+            1.59,
+            true
+          ]
+        ]
+      },
+      "Rada Tilly": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            7448,
+            80.45,
+            false
+          ],
+          [
+            "NO",
+            "",
+            1810,
+            19.55,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            176,
+            1.86,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            23,
+            0.24,
+            true
+          ]
+        ]
+      },
+      "Rawson": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            12980,
+            58.84,
+            false
+          ],
+          [
+            "NO",
+            "",
+            9081,
+            41.16,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            981,
+            4.22,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            216,
+            0.93,
+            true
+          ]
+        ],
+        "Consejo de la Magistratura": [
+          [
+            "GEN",
+            "",
+            662,
+            3.16,
+            false
+          ],
+          [
+            "FRENTE UNIDOS PODEMOS",
+            "",
+            4227,
+            20.16,
+            false
+          ],
+          [
+            "DESPIERTA CHUBUT",
+            "",
+            4220,
+            20.12,
+            false
+          ],
+          [
+            "LA LIBERTAD AVANZA",
+            "",
+            7994,
+            38.12,
+            false
+          ],
+          [
+            "PARTIDO INDEPENDIENTE DEL CHUBUT",
+            "",
+            1014,
+            4.84,
+            false
+          ],
+          [
+            "LA FUERZA DEL TRABAJO CHUBUTENSE",
+            "",
+            2852,
+            13.6,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            1341,
+            5.77,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            925,
+            3.98,
+            true
+          ]
+        ]
+      },
+      "Río Mayo": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            975,
+            62.1,
+            false
+          ],
+          [
+            "NO",
+            "",
+            595,
+            37.9,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            118,
+            6.95,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            10,
+            0.59,
+            true
+          ]
+        ]
+      },
+      "Río Pico": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            270,
+            45.53,
+            false
+          ],
+          [
+            "NO",
+            "",
+            323,
+            54.47,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            38,
+            5.91,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            12,
+            1.87,
+            true
+          ]
+        ],
+        "Consejo de la Magistratura": [
+          [
+            "GEN",
+            "",
+            17,
+            3.18,
+            false
+          ],
+          [
+            "FRENTE UNIDOS PODEMOS",
+            "",
+            150,
+            28.04,
+            false
+          ],
+          [
+            "DESPIERTA CHUBUT",
+            "",
+            185,
+            34.58,
+            false
+          ],
+          [
+            "LA LIBERTAD AVANZA",
+            "",
+            78,
+            14.58,
+            false
+          ],
+          [
+            "PARTIDO INDEPENDIENTE DEL CHUBUT",
+            "",
+            17,
+            3.18,
+            false
+          ],
+          [
+            "LA FUERZA DEL TRABAJO CHUBUTENSE",
+            "",
+            88,
+            16.45,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            63,
+            9.8,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            45,
+            7.0,
+            true
+          ]
+        ]
+      },
+      "Río Senguer": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            496,
+            57.08,
+            false
+          ],
+          [
+            "NO",
+            "",
+            373,
+            42.92,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            91,
+            9.34,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            14,
+            1.44,
+            true
+          ]
+        ]
+      },
+      "Sarmiento": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            4597,
+            66.69,
+            false
+          ],
+          [
+            "NO",
+            "",
+            2296,
+            33.31,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            461,
+            6.19,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            94,
+            1.26,
+            true
+          ]
+        ],
+        "Concejales": [
+          [
+            "ALTERNATIVA VECINAL",
+            "",
+            2525,
+            43.07,
+            false
+          ],
+          [
+            "LA LIBERTAD AVANZA",
+            "",
+            1323,
+            22.57,
+            false
+          ],
+          [
+            "UNIDOS PODEMOS",
+            "",
+            1155,
+            19.7,
+            false
+          ],
+          [
+            "DESPIERTA CHUBUT",
+            "",
+            859,
+            14.65,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            91,
+            1.48,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            194,
+            3.16,
+            true
+          ]
+        ]
+      },
+      "Tecka": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            401,
+            57.95,
+            false
+          ],
+          [
+            "NO",
+            "",
+            291,
+            42.05,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            131,
+            15.61,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            16,
+            1.91,
+            true
+          ]
+        ],
+        "Consejo de la Magistratura": [
+          [
+            "GEN",
+            "",
+            15,
+            2.27,
+            false
+          ],
+          [
+            "FRENTE UNIDOS PODEMOS",
+            "",
+            203,
+            30.66,
+            false
+          ],
+          [
+            "DESPIERTA CHUBUT",
+            "",
+            225,
+            33.99,
+            false
+          ],
+          [
+            "LA LIBERTAD AVANZA",
+            "",
+            129,
+            19.49,
+            false
+          ],
+          [
+            "PARTIDO INDEPENDIENTE DEL CHUBUT",
+            "",
+            26,
+            3.93,
+            false
+          ],
+          [
+            "LA FUERZA DEL TRABAJO CHUBUTENSE",
+            "",
+            64,
+            9.67,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            135,
+            16.09,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            42,
+            5.01,
+            true
+          ]
+        ]
+      },
+      "Telsen": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            190,
+            61.49,
+            false
+          ],
+          [
+            "NO",
+            "",
+            119,
+            38.51,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            9,
+            2.79,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            5,
+            1.55,
+            true
+          ]
+        ]
+      },
+      "Trelew": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            35545,
+            60.1,
+            false
+          ],
+          [
+            "NO",
+            "",
+            23597,
+            39.9,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            2986,
+            4.75,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            768,
+            1.22,
+            true
+          ]
+        ],
+        "Consejo de la Magistratura": [
+          [
+            "GEN",
+            "",
+            1811,
+            3.2,
+            false
+          ],
+          [
+            "FRENTE UNIDOS PODEMOS",
+            "",
+            11397,
+            20.17,
+            false
+          ],
+          [
+            "DESPIERTA CHUBUT",
+            "",
+            12851,
+            22.74,
+            false
+          ],
+          [
+            "LA LIBERTAD AVANZA",
+            "",
+            17800,
+            31.5,
+            false
+          ],
+          [
+            "PARTIDO INDEPENDIENTE DEL CHUBUT",
+            "",
+            2844,
+            5.03,
+            false
+          ],
+          [
+            "LA FUERZA DEL TRABAJO CHUBUTENSE",
+            "",
+            9808,
+            17.36,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            3622,
+            5.76,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            2748,
+            4.37,
+            true
+          ]
+        ]
+      },
+      "Trevelin": {
+        "Referéndum Provincial": [
+          [
+            "SÍ",
+            "",
+            3193,
+            58.46,
+            false
+          ],
+          [
+            "NO",
+            "",
+            2269,
+            41.54,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            337,
+            5.73,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            78,
+            1.33,
+            true
+          ]
+        ],
+        "Consejo de la Magistratura": [
+          [
+            "GEN",
+            "",
+            148,
+            2.84,
+            false
+          ],
+          [
+            "FRENTE UNIDOS PODEMOS",
+            "",
+            1416,
+            27.21,
+            false
+          ],
+          [
+            "DESPIERTA CHUBUT",
+            "",
+            1247,
+            23.96,
+            false
+          ],
+          [
+            "LA LIBERTAD AVANZA",
+            "",
+            1901,
+            36.53,
+            false
+          ],
+          [
+            "PARTIDO INDEPENDIENTE DEL CHUBUT",
+            "",
+            127,
+            2.44,
+            false
+          ],
+          [
+            "LA FUERZA DEL TRABAJO CHUBUTENSE",
+            "",
+            365,
+            7.01,
+            false
+          ],
+          [
+            "Votos Blanco",
+            "",
+            380,
+            6.48,
+            true
+          ],
+          [
+            "Votos Nulos",
+            "",
+            276,
+            4.71,
+            true
+          ]
+        ]
+      }
     }
   },
   "bancas": {
