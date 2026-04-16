@@ -251,13 +251,20 @@ function renderTable(loc,cat,showHeader){
   const tBancas=isConc?getTotalBancas(loc):null;
   let h=`<table class="T">`;
   if(showHeader)h+=`<tr class="sec"><td colspan="${isConc?5:4}">${CLAB[cat]||cat} — ${loc.toUpperCase()}${tBancas?" ("+tBancas+" bancas)":""}</td></tr>`;
-  h+=`<tr><th style="width:${isConc?"40%":"50%"}">Partido / Alianza</th><th class="r">Votos</th><th class="c">%</th>`;
+  h+=`<tr><th style="width:${isConc?"40%":"50%"}">${isRef?"Opción":"Partido / Alianza"}</th><th class="r">Votos</th><th class="c">%</th>`;
   if(isConc)h+=`<th class="c">Bancas</th>`;
   h+=`</tr>`;
+  const isRef=cat.startsWith('Referéndum');
   afirm.forEach((x,i)=>{
     const w=i===0;
     const b=isConc?getBancas(loc,x.p):null;
-    const foto=fotoImg(loc,cat,x.p);
+    let foto='';
+    if(isRef){
+      if(x.p==='SÍ') foto='<span style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:#27ae60;color:#fff;font-size:16px;font-weight:700;margin-right:8px;flex-shrink:0;vertical-align:middle">✓</span>';
+      else if(x.p==='NO') foto='<span style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:#c0392b;color:#fff;font-size:16px;font-weight:700;margin-right:8px;flex-shrink:0;vertical-align:middle">✗</span>';
+    } else {
+      foto=fotoImg(loc,cat,x.p);
+    }
     h+=`<tr class="${w?"w":""}"><td><div class="cand-cell">${foto}<strong>${x.p}</strong></div>${x.c?'<span style="font-size:11px;color:var(--muted);margin-left:34px">'+x.c+"</span>":""}</td>`;
     h+=`<td class="r" style="font-weight:700">${fmt(x.v)}</td>`;
     h+=`<td class="c">${x.pct.toFixed(2)}%</td>`;
