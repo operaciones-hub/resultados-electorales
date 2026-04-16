@@ -277,23 +277,29 @@ function renderTable(loc,cat,showHeader){
 // RENDER: TABLA REFERÉNDUM
 // ═══════════════════════════════════════════════════
 function renderRefTable(ref, showLocs) {
+  const badgeColor = ref.resultado==='APROBADO'?'var(--green)':'#c0392b';
   let h = `<table class="T">`;
   h += `<tr class="sec"><td colspan="3">${ref.titulo}</td></tr>`;
-  h += `<tr><td colspan="3" style="font-size:13px;color:var(--muted);padding:12px;background:#f8f9fa"><em>${ref.pregunta}</em></td></tr>`;
+  h += `<tr><td colspan="3" style="font-size:13px;color:var(--muted);padding:12px;background:#f8f9fa"><em>${ref.pregunta}</em><br><span style="display:inline-block;margin-top:8px;background:${badgeColor};color:#fff;padding:4px 16px;border-radius:20px;font-size:12px;font-weight:700;font-style:normal;letter-spacing:.5px">${ref.resultado}</span></td></tr>`;
   h += `<tr><th style="width:50%">Opción</th><th class="r">Votos</th><th class="c">%</th></tr>`;
   ref.partidos.forEach((row, i) => {
-    const isW = i === 0 && row[2] > 50;
-    const isNo = i === 1 && row[2] > 50;
-    h += `<tr class="${isW||isNo?'w':''}"><td><strong>${row[0]}</strong></td>`;
+    const isSi = row[0] === 'SÍ';
+    const isNo = row[0] === 'NO';
+    const isWinner = (isSi && row[2] > 50) || (isNo && row[2] > 50);
+    const icon = isSi
+      ? '<span style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:#27ae60;color:#fff;font-size:16px;font-weight:700;margin-right:8px;flex-shrink:0;vertical-align:middle">✓</span>'
+      : isNo
+      ? '<span style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:#c0392b;color:#fff;font-size:16px;font-weight:700;margin-right:8px;flex-shrink:0;vertical-align:middle">✗</span>'
+      : '';
+    h += `<tr class="${isWinner?'w':''}"><td><div class="cand-cell">${icon}<strong>${row[0]}</strong></div></td>`;
     h += `<td class="r" style="font-weight:700">${fmt(row[1])}</td>`;
-    h += `<td class="c">${row[2].toFixed(2)}%</td></tr>`;
+    h += `<td class="c" style="font-weight:600">${row[2].toFixed(2)}%</td></tr>`;
   });
   h += `<tr class="sub"><td>VOTOS POSITIVOS</td><td class="r">${fmt(ref.positivos)}</td><td class="c">${ref.total>0?(ref.positivos/ref.total*100).toFixed(2):0}%</td></tr>`;
   h += `<tr class="bk"><td>VOTOS EN BLANCO</td><td class="r">${fmt(ref.blanco)}</td><td class="c">${ref.total>0?(ref.blanco/ref.total*100).toFixed(2):0}%</td></tr>`;
   h += `<tr class="bk"><td>VOTOS ANULADOS</td><td class="r">${fmt(ref.nulos)}</td><td class="c">${ref.total>0?(ref.nulos/ref.total*100).toFixed(2):0}%</td></tr>`;
   h += `<tr class="tot"><td>TOTAL VOTANTES</td><td class="r">${fmt(ref.total)}</td><td class="c">100%</td></tr>`;
   h += `</table>`;
-  h += `<div style="text-align:center;margin:8px 0 16px"><span style="display:inline-block;background:${ref.resultado==='APROBADO'?'var(--green)':'#c0392b'};color:#fff;padding:6px 20px;border-radius:20px;font-size:13px;font-weight:700;letter-spacing:.5px">${ref.resultado}</span></div>`;
   return h;
 }
 
