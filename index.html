@@ -248,13 +248,13 @@ function renderTable(loc,cat,showHeader){
   const totAfirm=afirm.reduce((s,x)=>s+(x.v||0),0);
   const totAll=r.reduce((s,x)=>s+(x.v||0),0);
   const isConc=cat==="Concejales";
+  const isRef=cat.startsWith('Referéndum');
   const tBancas=isConc?getTotalBancas(loc):null;
   let h=`<table class="T">`;
   if(showHeader)h+=`<tr class="sec"><td colspan="${isConc?5:4}">${CLAB[cat]||cat} — ${loc.toUpperCase()}${tBancas?" ("+tBancas+" bancas)":""}</td></tr>`;
   h+=`<tr><th style="width:${isConc?"40%":"50%"}">${isRef?"Opción":"Partido / Alianza"}</th><th class="r">Votos</th><th class="c">%</th>`;
   if(isConc)h+=`<th class="c">Bancas</th>`;
   h+=`</tr>`;
-  const isRef=cat.startsWith('Referéndum');
   afirm.forEach((x,i)=>{
     const w=i===0;
     const b=isConc?getBancas(loc,x.p):null;
