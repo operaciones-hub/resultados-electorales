@@ -15,7 +15,7 @@
             --blanco: #ffffff;
         }
 
-        * { box-sizing: border-box; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body, html {
             margin: 0; padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -244,46 +244,29 @@
         .secretario-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 15px; }
         .secretario-tag { background: #f4f7f9; color: var(--color-principal); font-size: 11px; font-weight: 700; padding: 5px 12px; border-radius: 12px; border: 1px solid #e7ebef; }
 
-        /* ESTILOS REGISTROS RECONFIGURADOS SEGÚN MOCKUP V2 */
+        /* --- ESTILOS ADAPTADOS COMPONENTES DE MOCKUP V2 (PAG 5 TRAMITES) --- */
         .tram-hero { background: #1a6d43; padding: 44px 32px 38px; color: white; text-align: center; }
         .ph-tags { display: flex; gap: 8px; margin-top: 18px; flex-wrap: wrap; justify-content: center; }
         .ph-tag { background: rgba(255, 255, 255, 0.08); color: rgba(255, 255, 255, 0.8); font-size: 10.5px; font-weight: 700; padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.15); display: inline-flex; align-items: center; gap: 5px; }
-        .tram-sec { background: #f1f3f5; padding: 44px 32px; }
+        
         .tram-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 25px; }
         .tram-card { background: white; border: 1px solid #e7ebef; border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; transition: border-color .2s; }
-        .tram-card:hover { border-color: var(--color-principal); }
-        .tram-card:nth-child(2):hover { border-color: #17A550; }
-        .tram-card:nth-child(3):hover { border-color: #7a5c2e; }
-        .tram-card:nth-child(4):hover { border-color: #597B9E; }
-        .tram-head { padding: 20px 22px; display: flex; align-items: flex-start; gap: 14px; border-bottom: 1px solid #e7ebef; background: #f8f9fa; }
-        .tram-h-ico { width: 48px; height: 48px; border-radius: 10px; background: #eaf0f6; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-        .tram-card:nth-child(2) .tram-h-ico { background: #ecf6ef; }
-        .tram-card:nth-child(3) .tram-h-ico { background: #f3ebdd; }
-        .tram-card:nth-child(4) .tram-h-ico { background: #edf1f6; }
-        .tram-ht { font-family: 'Merriweather', Georgia, serif; font-size: 15.5px; font-weight: 700; color: var(--color-oscuro); margin-bottom: 4px; }
+        .tram-head { padding: 20px 22px; display: flex; align-items: flex-start; gap: 14px; border-bottom: 1px solid #e7ebef; background: #f8f9fa; text-align: left; }
+        .tram-h-ico { width: 48px; height: 48px; border-radius: 10px; background: var(--color-secundario-azul); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 20px;}
+        .tram-ht { font-size: 15.5px; font-weight: 700; color: var(--color-oscuro); margin-bottom: 4px; }
         .tram-hd { font-size: 12px; color: #8b93a0; line-height: 1.5; }
-        .tram-body { padding: 22px; flex: 1; display: flex; flex-direction: column; }
+        .tram-body { padding: 22px; flex: 1; display: flex; flex-direction: column; text-align: left; }
         .tram-steps { display: flex; flex-direction: column; gap: 11px; margin-bottom: 20px; flex: 1; }
         .tram-step { display: flex; align-items: flex-start; gap: 12px; }
         .tram-step-n { width: 22px; height: 22px; border-radius: 50%; background: var(--color-principal); color: white; font-size: 10.5px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
-        .tram-card:nth-child(2) .tram-step-n { background: #17A550; }
-        .tram-card:nth-child(3) .tram-step-n { background: #7a5c2e; }
-        .tram-card:nth-child(4) .tram-step-n { background: #597B9E; }
         .tram-step-t { font-size: 12.5px; color: #555e6c; line-height: 1.55; }
-        .tram-btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 11px; background: var(--color-principal); color: white; border-radius: 6px; font-size: 13px; font-weight: 700; cursor: pointer; transition: background .15s; text-decoration: none; }
-        .tram-btn:hover { background: #2962a0; }
-        .tram-card:nth-child(2) .tram-btn { background: #17A550; }
-        .tram-card:nth-child(2) .tram-btn:hover { background: #0d7d3c; }
-        .tram-card:nth-child(3) .tram-btn { background: #7a5c2e; }
-        .tram-card:nth-child(3) .tram-btn:hover { background: #5a4323; }
-        .tram-card:nth-child(4) .tram-btn { background: #597B9E; }
-        .tram-card:nth-child(4) .tram-btn:hover { background: #44617f; }
+        .tram-btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 11px; background: var(--color-principal); color: white; border-radius: 6px; font-size: 13px; font-weight: 700; cursor: pointer; transition: background .15s; text-decoration: none; border: none; }
+        .tram-btn:hover { background: var(--color-oscuro); }
 
-        .form-sec { background: white; padding: 44px 32px; border-bottom: 1px solid #e7ebef; }
         .form-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 25px; }
-        .form-card { background: #f8f9fa; border: 1px solid #e7ebef; border-radius: 10px; padding: 18px; display: flex; align-items: flex-start; gap: 14px; cursor: pointer; transition: all .18s; }
+        .form-card { background: #f8f9fa; border: 1px solid #e7ebef; border-radius: 10px; padding: 18px; display: flex; align-items: flex-start; gap: 14px; cursor: pointer; transition: all .18s; text-align: left; }
         .form-card:hover { background: white; border-color: var(--color-principal); }
-        .form-ico { width: 42px; height: 50px; background: white; border: 1px solid #e7ebef; border-radius: 50pxpx; display: flex; flex-direction: column; align-items: center; justify-content: center; flex-shrink: 0; position: relative; overflow: hidden; }
+        .form-ico { width: 42px; height: 50px; background: white; border: 1px solid #e7ebef; border-radius: 5px; display: flex; flex-direction: column; align-items: center; justify-content: center; flex-shrink: 0; position: relative; overflow: hidden; }
         .form-ico::before { content: 'PDF'; position: absolute; bottom: 4px; left: 0; right: 0; text-align: center; font-size: 7.5px; font-weight: 700; color: #c0392b; letter-spacing: .4px; }
         .form-body { flex: 1; min-width: 0; }
         .form-t { font-size: 13px; font-weight: 700; color: var(--color-oscuro); margin-bottom: 4px; line-height: 1.35; }
@@ -410,7 +393,7 @@
         <section class="hero-horizontal" style="background: var(--color-oscuro);">
             <div class="welcome-overlay" style="background: rgba(255, 255, 255, 0.05); color: white; border-left-color: var(--color-dorado); box-shadow: none;">
                 <div style="text-align: left;">
-                    <div style="font-size: 10.5px; font-weight: 700; color: var(--color-dorado); text-transform: uppercase; letter-spacing: 1.3px; margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">Organismo Electoral</div>
+                    <div style="font-size: 10.5px; font-weight: 700; color: var(--color-dorado); text-transform: uppercase; letter-spacing: 1.3px; margin-bottom: 10px;">Organismo Electoral</div>
                     <h2 style="font-family: 'Merriweather', Georgia, serif; font-size: 30px; font-weight: 700; color: #fff; line-height: 1.25; margin-bottom: 10px;">Secretaría Electoral Permanente</h2>
                     <p style="font-size: 14px; color: rgba(255,255,255,.75); max-width: 680px; line-height: 1.7;">Organismo autónomo de la Legislatura Provincial con sede en Rawson. Garantiza la imparcialidad y transparencia de todos los procesos electorales de la Provincia del Chubut.</p>
                     <div class="ph-tags" style="justify-content: flex-start; margin-top: 18px;">
@@ -426,98 +409,55 @@
             <h2 class="section-title">¿Qué es la Secretaría Electoral Permanente?</h2>
             <div class="inst-twocol" style="box-shadow: none; padding: 0;">
                 <div>
-                    <p class="cs-lead">Es el organismo técnico, independiente y permanente que garantiza la profesionalización de la administración electoral en la Provincia del Chubut.</p>
+                    <p class="lead">Es el organismo técnico, independiente y permanente que garantiza la profesionalización de la administración electoral en la Provincia del Chubut.</p>
                     <p>Establecida como organismo autónomo dentro de la estructura de la Legislatura Provincial, opera con plena independencia funcional, lo que garantiza su imparcialidad en los procesos electorales y la separación de la gestión técnica respecto de las contingencias políticas coyunturales.</p>
                     <p>Su titular es designado por el Poder Ejecutivo con aprobación de los dos tercios de la Legislatura, garantizando un amplio consenso político y la confianza de todos los actores del sistema democrático.</p>
                 </div>
                 <div>
                     <div class="highlight-card">
-                        <div class="highlight-title">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-acento-azul)" stroke-width="2" width="12" height="12"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                            Mandato
-                        </div>
+                        <div class="highlight-title">Mandato</div>
                         <div class="highlight-text">6 años con posibilidad de una sola reelección. Busca equilibrar la estabilidad institucional con la renovación democrática.</div>
                     </div>
                     <div class="highlight-card dorado">
-                        <div class="highlight-title">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-dorado)" stroke-width="2" width="12" height="12"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                            Autonomía
-                        </div>
+                        <div class="highlight-title">Autonomía</div>
                         <div class="highlight-text">Autonomía presupuestaria dentro del Poder Legislativo, garantizando independencia operativa y técnica.</div>
                     </div>
                     <div class="highlight-card tierra">
-                        <div class="highlight-title">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-tierra)" stroke-width="2" width="12" height="12"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                            Sede
-                        </div>
+                        <div class="highlight-title">Sede</div>
                         <div class="highlight-text">Rawson, Chubut. Funciona en la Legislatura Provincial con atención de lunes a viernes.</div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <section style="background: #f8f9fa; padding: 44px 8%;">
             <h2 class="section-title">Misión, Visión y Valores</h2>
             <div class="mvv-grid">
                 <div class="mvv-card">
-                    <div class="val-ico" style="margin: 0 0 14px 0;"><svg viewBox="0 0 24 24" fill="none" stroke="#3777AC" stroke-width="1.9" width="22" height="22"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2" fill="#3777AC"/></svg></div>
                     <h3>Misión</h3>
-                    <p>Administrar y gestionar los procesos electorales de manera profesional, autónoma y eficiente, garantizando la transparencia y legitimidad de los comicios mientras promovemos activamente la participación ciudadana.</p>
+                    <p>Administrar y gacetillar los procesos electorales de manera profesional, autónoma y eficiente, garantizando la transparencia y legitimidad de los comicios mientras promovemos activamente la participación ciudadana.</p>
                 </div>
-                <div class="mvv-card" style="border-top-color: #17A550;">
-                    <div class="val-ico" style="margin: 0 0 14px 0;"><svg viewBox="0 0 24 24" fill="none" stroke="#17A550" stroke-width="1.9" width="22" height="22"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+                <div class="mvv-card">
                     <h3>Visión</h3>
                     <p>Ser un organismo electoral de referencia a nivel nacional, reconocido por su excelencia técnica, innovación tecnológica y compromiso con el fortalecimiento de la calidad democrática de la provincia.</p>
                 </div>
-                <div class="mvv-card" style="border-top-color: #7a5c2e;">
-                    <div class="val-ico" style="margin: 0 0 14px 0;"><svg viewBox="0 0 24 24" fill="none" stroke="#7a5c2e" stroke-width="1.9" width="22" height="22"><path d="M12 2L2 7v6c0 5.55 3.84 10.74 10 12 6.16-1.26 10-6.45 10-12V7l-10-5z"/><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <div class="mvv-card">
                     <h3>Valores</h3>
                     <p>Independencia, transparencia, profesionalismo, compromiso democrático y responsabilidad son los cinco pilares éticos que guían cada decisión institucional.</p>
                 </div>
             </div>
-        </section>
 
-        <div class="container" style="background: white;">
             <h2 class="section-title">Nuestros cinco valores en detalle</h2>
             <div class="vals-grid">
-                <div class="val-card">
-                    <div class="val-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#3777AC" stroke-width="1.9" width="20" height="20"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-                    <h4>Independencia</h4>
-                    <p>Decisiones basadas en criterios técnicos, libres de presiones externas.</p>
-                </div>
-                <div class="val-card">
-                    <div class="val-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#17A550" stroke-width="1.9" width="20" height="20"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
-                    <h4>Transparencia</h4>
-                    <p>Comunicación clara que transforma lo técnico en lo accesible.</p>
-                </div>
-                <div class="val-card">
-                    <div class="val-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#7a5c2e" stroke-width="1.9" width="20" height="20"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-                    <h4>Profesionalismo</h4>
-                    <p>Excelencia técnica y mejora continua en todos los procesos.</p>
-                </div>
-                <div class="val-card">
-                    <div class="val-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#597B9E" stroke-width="1.9" width="20" height="20"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-                    <h4>Compromiso</h4>
-                    <p>Fomento activo de la participación ciudadana en el sistema.</p>
-                </div>
-                <div class="val-card">
-                    <div class="val-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#c0392b" stroke-width="1.9" width="20" height="20"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-                    <h4>Responsabilidad</h4>
-                    <p>Gestión eficiente de recursos públicos con integridad.</p>
-                </div>
+                <div class="val-card"><h4>Independencia</h4><p>Decisiones basadas en criterios técnicos, libres de presiones externas.</p></div>
+                <div class="val-card"><h4>Transparencia</h4><p>Comunicación clara que transforma lo técnico en lo accesible.</p></div>
+                <div class="val-card"><h4>Profesionalismo</h4><p>Excelencia técnica y mejora continua en todos los procesos.</p></div>
+                <div class="val-card"><h4>Compromiso</h4><p>Fomento activo de la participación ciudadana en el sistema.</p></div>
+                <div class="val-card"><h4>Responsabilidad</h4><p>Gestión eficiente de recursos públicos con integridad.</p></div>
             </div>
 
             <h2 class="section-title" style="margin-top: 40px;">Secretario Electoral Permanente</h2>
             <div class="secretario-card" style="box-shadow: 0 1px 3px rgba(0,0,0,0.05); border: 1px solid #e7ebef; border-top: 5px solid var(--color-dorado);">
-                <div class="sec-photo" style="background: var(--color-oscuro); border-radius: 8px;">
-                    <div class="sec-photo-av">
-                        <svg viewBox="0 0 48 48" fill="none" width="52" height="52">
-                            <circle cx="24" cy="18" r="9" fill="rgba(255,255,255,.15)" stroke="rgba(255,255,255,.35)" stroke-width="1.5"/>
-                            <path d="M9 41c0-8.5 6.72-15 15-15s15 6.5 15 15" stroke="rgba(255,255,255,.35)" stroke-width="1.5" fill="rgba(255,255,255,.08)"/>
-                        </svg>
-                    </div>
-                </div>
-                <div style="padding-left: 10px;">
+                <div class="secretario-foto"><img src="img/alejandrotullio.jpeg" alt="Alejandro Tullio"></div>
+                <div>
                     <span class="secretario-rol">Titular del organismo</span>
                     <h3>Alejandro Tullio</h3>
                     <div class="secretario-cargo">Secretario Electoral Permanente · Designado por el Poder Ejecutivo con aprobación de los 2/3 de la Legislatura Provincial</div>
@@ -547,18 +487,16 @@
             </div>
         </section>
 
-        <section class="tram-sec">
+        <section style="background: #f8f9fa; padding: 44px 8%;">
             <div class="container" style="padding: 0;">
-                <h2 class="section-title" style="border-left-color: var(--color-principal);">Trámites más frecuentes</h2>
-                <p class="section-subtitle" style="margin-bottom: 20px;">Seleccioná el trámite que necesitás realizar. Cada gestión incluye los pasos a seguir, los requisitos y la documentación necesaria para completarla correctamente.</p>
+                <h2 class="section-title">Trámites más frecuentes</h2>
+                <p class="section-subtitle">Seleccioná el trámite que necesitás realizar. Cada gestión incluye los pasos a seguir, los requisitos y la documentación necesaria para completarla correctamente.</p>
                 
                 <div class="tram-grid">
                     <article class="tram-card">
                         <div class="tram-head">
-                            <div class="tram-h-ico">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="#3777AC" stroke-width="1.9" width="24" height="24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M8 11h6M11 8v6"/></svg>
-                            </div>
-                            <div class="tram-head-text">
+                            <div class="tram-h-ico">🔍</div>
+                            <div>
                                 <div class="tram-ht">Verificar padrón electoral</div>
                                 <div class="tram-hd">Consultá si figurás en el padrón y dónde te corresponde votar</div>
                             </div>
@@ -569,36 +507,32 @@
                                 <div class="tram-step"><div class="tram-step-n">2</div><div class="tram-step-t">El sistema te indicará el establecimiento, mesa y orden en que figurás.</div></div>
                                 <div class="tram-step"><div class="tram-step-n">3</div><div class="tram-step-t">Descargá o imprimí tu constancia para el día de la elección.</div></div>
                             </div>
-                            <a class="tram-btn">Consultar padrón</a>
+                            <button class="tram-btn">Consultar padrón</button>
                         </div>
                     </article>
 
                     <article class="tram-card">
                         <div class="tram-head">
-                            <div class="tram-h-ico">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="#17A550" stroke-width="1.9" width="24" height="24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>
-                            </div>
-                            <div class="tram-head-text">
+                            <div class="tram-h-ico">🗳️</div>
+                            <div>
                                 <div class="tram-ht">Registrar un partido político</div>
-                                <div class="tram-hd">Inicio del proceso de reconocimiento y personería político-jurídica</div>
+                                <div class="tram-hd">Inicio del proceso de reconocimiento y personería jurídico-política</div>
                             </div>
                         </div>
                         <div class="tram-body">
                             <div class="tram-steps">
                                 <div class="tram-step"><div class="tram-step-n">1</div><div class="tram-step-t">Reuní el acta fundacional, carta orgánica y declaración de principios.</div></div>
-                                <div class="tram-step"><div class="tram-step-n">2</div><div class="tram-step-t">Presentá avales según Ley XII N° 23 (mínimo 4% del padrón provincial).</div></div>
+                                <div class="tram-step"><div class="tram-step-n">2</div><div class="tram-step-t">Presentá avales según Ley XII N° 23 (mínimo 4‰ del padrón provincial).</div></div>
                                 <div class="tram-step"><div class="tram-step-n">3</div><div class="tram-step-t">Agendá la presentación formal en mesa de entradas de la SEP.</div></div>
                             </div>
-                            <a class="tram-btn">Iniciar registro</a>
+                            <button class="tram-btn">Iniciar registro</button>
                         </div>
                     </article>
 
                     <article class="tram-card">
                         <div class="tram-head">
-                            <div class="tram-h-ico">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="#7a5c2e" stroke-width="1.9" width="24" height="24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                            </div>
-                            <div class="tram-head-text">
+                            <div class="tram-h-ico">📝</div>
+                            <div>
                                 <div class="tram-ht">Afiliación partidaria</div>
                                 <div class="tram-hd">Incorporate, consultá o renunciá a la afiliación a un partido político</div>
                             </div>
@@ -609,16 +543,14 @@
                                 <div class="tram-step"><div class="tram-step-n">2</div><div class="tram-step-t">Descargá la ficha de afiliación o renuncia del partido de tu elección.</div></div>
                                 <div class="tram-step"><div class="tram-step-n">3</div><div class="tram-step-t">Presentá la ficha firmada en la SEP o en la sede partidaria.</div></div>
                             </div>
-                            <a class="tram-btn">Consultar afiliación</a>
+                            <button class="tram-btn">Consultar afiliación</button>
                         </div>
                     </article>
 
                     <article class="tram-card">
                         <div class="tram-head">
-                            <div class="tram-h-ico">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="#597B9E" stroke-width="1.9" width="24" height="24"><path d="M21 2v6h-6M3 12a9 9 0 0 1 15-6.7L21 8M3 22v-6h6M21 12a9 9 0 0 1-15 6.7L3 16"/></svg>
-                            </div>
-                            <div class="tram-head-text">
+                            <div class="tram-h-ico">🔄</div>
+                            <div>
                                 <div class="tram-ht">Cambio de domicilio</div>
                                 <div class="tram-hd">Actualizá tu lugar de votación tras un cambio de domicilio</div>
                             </div>
@@ -629,16 +561,16 @@
                                 <div class="tram-step"><div class="tram-step-n">2</div><div class="tram-step-t">La actualización en el padrón es automática hasta 180 días antes de la elección.</div></div>
                                 <div class="tram-step"><div class="tram-step-n">3</div><div class="tram-step-t">Verificá tu nuevo establecimiento de votación antes del comicio.</div></div>
                             </div>
-                            <a class="tram-btn">Más información</a>
+                            <button class="tram-btn">Más información</button>
                         </div>
                     </article>
                 </div>
             </div>
         </section>
 
-        <section class="form-sec">
+        <section style="background: white; padding: 44px 8%;">
             <div class="container" style="padding: 0;">
-                <h2 class="section-title" style="border-left-color: var(--color-dorado);">Descarga de formularios</h2>
+                <h2 class="section-title">Descarga de formularios</h2>
                 <p class="section-subtitle">Formularios oficiales en formato PDF editable. Todos los documentos están homologados por la Secretaría Electoral Permanente y actualizados conforme a la normativa vigente.</p>
                 
                 <div class="form-grid">
@@ -706,7 +638,7 @@
         <div class="container">
             <div class="timeline">
                 <div class="timeline-item left">
-                    <div class="timeline-content"><span class="date-badge">15 de Marzo</span><h3>Cierre de Padrón Provisorio</h3><p>Fecha límite para novedades registrales y reclamos de datos personales.</p></div>
+                    <div class="timeline-content"><span class="date-badge">15 de Marzo</span><h3>Cierre de Padrón Provisorio</h3><p>Fecha límite para novedades registrales and reclamos de datos personales.</p></div>
                 </div>
                 <div class="timeline-item right">
                     <div class="timeline-content"><span class="date-badge">10 de Abril</span><h3>Reconocimiento de Alianzas</h3><p>Fin del plazo legal para solicitar la concertación de frentes electorales.</p></div>
