@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -743,4 +743,95 @@
                     <p>Descargue el documento PDF oficial con las normativas, roles y responsabilidades para el día del sufragio.</p>
                     <button class="btn-registro">Descargar Manual (PDF)</button>
                 </div>
-                <div class="inst-box" style="border-top-color:
+                <div class="inst-box" style="border-top-color: var(--color-dorado);">
+                    <h3>Curso Virtual 2026</h3>
+                    <p>Acceda a las aulas virtuales guiadas para obtener la certificación obligatoria y el cobro del viático electoral.</p>
+                    <button class="btn-registro">Iniciar Aula Virtual</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="contacto" class="page">
+        <section style="background: var(--color-oscuro); color: white; padding: 50px 8%;">
+            <h2>Delegaciones y Contacto Oficial</h2>
+            <p>Canales de comunicación directa y atención presencial en la Provincia del Chubut.</p>
+        </section>
+        <div class="container">
+            <div style="display:grid; grid-template-columns:1fr 1.2fr; gap:40px;">
+                <div>
+                    <h3 class="section-title">Canales de Atención</h3>
+                    <p><strong>📍 Rawson (Sede Central):</strong> Mitre 550, Legislatura Provincial</p>
+                    <p><strong>📞 Teléfono:</strong> (0280) 4481-000</p>
+                    <p><strong>📧 Correo Técnico:</strong> secretaria@electoralchubut.gov.ar</p>
+                    <p><strong>⏰ Horario:</strong> Lunes a Viernes de 08:00 a 16:00 hs.</p>
+                </div>
+                <div class="inst-box">
+                    <h3>Envíe su consulta online</h3>
+                    <form style="display:flex; flex-direction:column; gap:12px; margin-top:15px;">
+                        <input type="text" placeholder="Nombre completo" style="padding:10px; border:1px solid #ccc; border-radius:4px;">
+                        <input type="email" placeholder="Correo electrónico" style="padding:10px; border:1px solid #ccc; border-radius:4px;">
+                        <textarea placeholder="Escriba su consulta aquí..." rows="4" style="padding:10px; border:1px solid #ccc; border-radius:4px; font-family:inherit;"></textarea>
+                        <button type="button" class="btn-registro" style="width:100%;">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-main">
+            <div class="footer-brand">
+                <h2>Secretaría Electoral Permanente</h2>
+                <div class="social-row">
+                    <div class="social-icon">IG</div>
+                    <div class="social-icon">FB</div>
+                    <div class="social-icon">X</div>
+                    <div class="social-icon">TK</div>
+                    <div class="social-icon">WA</div>
+                    <div class="social-icon">YT</div>
+                </div>
+            </div>
+            <div class="footer-cols">
+                <div class="f-col">
+                    <h4>Secciones</h4>
+                    <p onclick="showPage('registros')">Padrón Electoral</p>
+                    <p onclick="showPage('procesos')">Elecciones</p>
+                    <p onclick="showPage('partidos')">Partidos Políticos</p>
+                </div>
+                <div class="f-col">
+                    <h4>Información</h4>
+                    <p onclick="showPage('institucional')">Normativa Vigente</p>
+                    <p onclick="showPage('institucional')">Resoluciones</p>
+                    <p onclick="showPage('capacitacion')">Gacetillas</p>
+                </div>
+            </div>
+        </div>
+        <div class="copy-line">
+            &copy; 2026 Secretaría Electoral Permanente de Chubut · Provincia del Chubut · Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <script>
+        function showPage(id) {
+            document.querySelectorAll('.page').forEach(p => {
+                p.classList.remove('active');
+                p.style.display = 'none';
+            });
+
+            const target = document.getElementById(id);
+            if (target) {
+                target.style.display = 'flex';
+                target.classList.add('active');
+            }
+            
+            document.querySelectorAll('nav button').forEach(btn => btn.classList.remove('active'));
+            
+            const btnActivo = Array.from(document.querySelectorAll('nav button')).find(b => b.getAttribute('onclick').includes(id));
+            if (btnActivo) btnActivo.classList.add('active');
+            
+            window.scrollTo(0,0);
+        }
+    </script>
+</body>
+</html>
