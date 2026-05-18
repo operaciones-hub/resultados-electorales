@@ -1,584 +1,484 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secretaría Electoral Permanente - Chubut</title>
-    <style>
-        :root {
-            --color-principal: #597B9E; /* 45% */
-            --color-acento-azul: #5b9bd5; /* 10% */
-            --color-dorado: #c2b59b; /* 10% */
-            --color-secundario-azul: #a4b7ca; /* 20% */
-            --color-oscuro: #0f1a30; /* 20% */
-            --color-tierra: #9b8579; /* 5% */
-            --blanco: #ffffff;
-        }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        
-        body, html {
-            margin: 0; padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f7f9;
-            color: var(--color-oscuro);
-            scroll-behavior: smooth;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        /* --- CABEZAL --- */
-        header {
-            background: var(--blanco);
-            padding: 15px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 25px; 
-        }
-        .logo-img-header {
-            width: 220px; 
-            height: auto;
-            display: block;
-            object-fit: contain;
-        }
-        .logo-text h1 {
-            font-size: 24px; 
-            color: var(--color-principal);
-            margin: 0;
-        }
-        .search-box {
-            background: #f0f2f5;
-            padding: 10px 20px;
-            border-radius: 25px;
-            display: flex;
-            align-items: center;
-            width: 350px;
-        }
-        .search-box input {
-            border: none; background: transparent; outline: none; width: 100%; font-size: 14px;
-        }
-
-        /* NAVEGACIÓN */
-        nav {
-            background: var(--color-principal);
-            padding: 0 8%;
-            display: flex;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-        nav button {
-            background: none; border: none; color: white;
-            padding: 20px 18px; cursor: pointer;
-            font-weight: 600; text-transform: uppercase; font-size: 12px;
-            transition: 0.3s;
-        }
-        nav button:hover, nav button.active {
-            background: var(--color-oscuro);
-            border-bottom: 4px solid var(--color-dorado);
-        }
-
-        /* CONTENIDO DE PÁGINAS (ESTRUCTURA DE VISIBILIDAD REPARADA) */
-        .page { 
-            display: none; 
-            min-height: 80vh; 
-            flex-direction: column; 
-            width: 100%;
-        }
-        .page.active { 
-            display: flex !important; /* Fuerza la activación correcta */
-            animation: fadeIn 0.4s ease; 
-        }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-        .container { padding: 60px 8%; flex: 1; }
-
-        /* HERO INSTITUCIONAL Y SECCIONES */
-        .hero-horizontal {
-            position: relative;
-            height: 350px;
-            background: linear-gradient(rgba(15, 26, 48, 0.6), rgba(15, 26, 48, 0.6)), 
-                        url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1600&q=80') center/cover;
-            display: flex; align-items: center; justify-content: center;
-        }
-        .welcome-overlay {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 40px;
-            max-width: 800px;
-            border-left: 10px solid var(--color-dorado);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-            text-align: center;
-        }
-        .welcome-overlay h2 { color: var(--color-principal); margin: 0 0 15px 0; font-size: 30px; }
-        .welcome-overlay p { font-size: 17px; line-height: 1.6; color: #444; }
-
-        /* SECCIONES INTERNAS */
-        .inst-box {
-            background: white; padding: 40px; border-top: 5px solid var(--color-acento-azul);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05); margin-bottom: 25px;
-        }
-
-        /* SIREPPAR Y BLOQUES HOME */
-        .sireppar-section {
-            background: var(--color-secundario-azul);
-            padding: 40px; border-radius: 8px; margin-bottom: 40px;
-            display: flex; justify-content: space-between; align-items: center;
-        }
-        .btn-sireppar {
-            background: var(--color-oscuro); color: white; padding: 15px 30px; border: none; font-weight: bold; cursor: pointer; border-radius: 4px;
-        }
-        .notif-bar { background: white; padding: 25px; border-left: 6px solid var(--color-tierra); margin-bottom: 40px; }
-
-        .home-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 40px; }
-        .home-card { background: white; padding: 25px; text-align: center; border-bottom: 4px solid var(--color-dorado); box-shadow: 0 4px 10px rgba(0,0,0,0.05); cursor: pointer; transition: 0.3s; }
-        .home-card:hover { transform: translateY(-5px); }
-
-        /* PÁGINA INSTITUCIONAL */
-        .section-title {
-            color: var(--color-principal);
-            border-left: 5px solid var(--color-acento-azul);
-            padding-left: 15px;
-            margin: 0 0 25px 0;
-            font-size: 24px;
-        }
-        .inst-twocol {
-            display: grid;
-            grid-template-columns: 1.1fr 1fr;
-            gap: 40px;
-            background: white;
-            padding: 40px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            margin-bottom: 40px;
-        }
-        .inst-twocol .lead { font-size: 17px; font-weight: 600; color: var(--color-principal); line-height: 1.55; margin-bottom: 20px; }
-        .highlight-card { background: #f4f7f9; border-left: 4px solid var(--color-acento-azul); padding: 16px 20px; margin-bottom: 14px; border-radius: 0 6px 6px 0; }
-        .highlight-card.dorado { border-left-color: var(--color-dorado); background: #faf6ee; }
-        .highlight-title { font-weight: 700; text-transform: uppercase; font-size: 12px; margin-bottom: 6px; color: var(--color-oscuro); }
-        
-        .mvv-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 40px; }
-        .mvv-card { background: white; padding: 30px; border-top: 5px solid var(--color-acento-azul); box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
-        .vals-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 40px; }
-        .val-card { background: white; padding: 22px 18px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border-bottom: 3px solid var(--color-dorado); }
-        
-        .secretario-card { display: grid; grid-template-columns: 200px 1fr; gap: 35px; background: white; padding: 40px; border-top: 5px solid var(--color-dorado); align-items: center; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
-        .secretario-foto { width: 180px; height: 180px; border-radius: 50%; overflow: hidden; border: 3px solid var(--color-secundario-azul); display: flex; align-items: center; justify-content: center; margin: 0 auto;}
-        .secretario-foto img { width: 100%; height: 100%; object-fit: cover; }
-        .secretario-rol { display: inline-block; background: var(--color-secundario-azul); color: var(--color-oscuro); padding: 4px 12px; border-radius: 12px; font-size: 11px; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; }
-        .secretario-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 15px; }
-        .secretario-tag { background: #f4f7f9; color: var(--color-principal); font-size: 11px; font-weight: 700; padding: 5px 12px; border-radius: 12px; border: 1px solid #e7ebef; }
-
-        /* COMPONENTES DE MOCKUP V2 (REGISTROS / TRÁMITES) */
-        .tram-hero { background: #1a6d43; padding: 50px 8%; color: white; text-align: center; }
-        .ph-tags { display: flex; gap: 8px; margin-top: 18px; flex-wrap: wrap; justify-content: center; }
-        .ph-tag { background: rgba(255, 255, 255, 0.1); color: white; font-size: 11px; padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.2); }
-        
-        .tram-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 25px; }
-        .tram-card { background: white; border: 1px solid #e7ebef; border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
-        .tram-head { padding: 20px; background: #f8f9fa; border-bottom: 1px solid #e7ebef; display: flex; align-items: center; gap: 15px; }
-        .tram-h-ico { font-size: 24px; background: #eaf0f6; width: 45px; height: 45px; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
-        .tram-ht { font-size: 16px; font-weight: 700; color: var(--color-oscuro); }
-        .tram-hd { font-size: 12px; color: #777; }
-        .tram-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
-        .tram-steps { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; flex: 1; }
-        .tram-step { display: flex; gap: 10px; font-size: 13px; color: #555; line-height: 1.5; }
-        .tram-step-n { width: 20px; height: 20px; background: var(--color-principal); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; flex-shrink: 0; }
-        .tram-btn { width: 100%; padding: 12px; background: var(--color-principal); color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; text-align: center; text-decoration: none; font-size: 13px; transition: 0.2s; }
-        .tram-btn:hover { background: var(--color-oscuro); }
-
-        .form-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 25px; }
-        .form-card { background: #f8f9fa; border: 1px solid #e7ebef; border-radius: 8px; padding: 20px; text-align: left; transition: 0.2s; }
-        .form-card:hover { background: white; border-color: var(--color-principal); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-        .form-t { font-size: 14px; font-weight: bold; color: var(--color-oscuro); margin-bottom: 5px; }
-        .form-d { font-size: 12px; color: #666; margin-bottom: 12px; line-height: 1.4; }
-        .form-dl { font-size: 12px; color: var(--color-principal); font-weight: bold; text-decoration: none; }
-
-        /* TIMELINE (PROCESOS) */
-        .timeline { position: relative; max-width: 900px; margin: 0 auto; padding: 40px 0; }
-        .timeline::after { content: ''; position: absolute; width: 4px; background-color: var(--color-secundario-azul); top: 0; bottom: 0; left: 50%; margin-left: -2px; }
-        .timeline-item { padding: 10px 40px; position: relative; width: 50%; }
-        .timeline-item::after { content: ''; position: absolute; width: 20px; height: 20px; right: -10px; background-color: white; border: 4px solid var(--color-dorado); top: 15px; border-radius: 50%; z-index: 1; }
-        .left { left: 0; text-align: right; }
-        .right { left: 50%; }
-        .right::after { left: -10px; }
-        .timeline-content { padding: 20px; background: white; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 3px solid var(--color-principal); }
-        .date-badge { display: inline-block; background: var(--color-oscuro); color: white; padding: 4px 12px; border-radius: 20px; font-size: 11px; margin-bottom: 10px; text-transform: uppercase; }
-
-        .list-item-panel { background: white; padding: 20px; border-radius: 6px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.02); border-left: 4px solid var(--color-principal); display: flex; justify-content: space-between; align-items: center; }
-
-        /* FOOTER */
-        footer {
-            background: var(--color-oscuro);
-            padding: 60px 8% 40px 8%;
-            color: var(--color-secundario-azul);
-            margin-top: auto;
-        }
-        .footer-main { display: flex; justify-content: space-between; margin-bottom: 40px; }
-        .footer-brand h2 { color: white; margin-bottom: 25px; font-size: 24px; }
-        .social-row { display: flex; gap: 15px; }
-        .social-icon { width: 44px; height: 44px; background: var(--color-principal); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; cursor: pointer; transition: 0.4s; border: 1px solid rgba(255, 255, 255, 0.1); }
-        .social-icon:hover { transform: translateY(-5px); background: var(--color-acento-azul); border-color: var(--color-dorado); box-shadow: 0 0 15px rgba(194, 181, 155, 0.5); }
-        .footer-cols { display: flex; gap: 60px; }
-        .f-col h4 { color: var(--color-dorado); text-transform: uppercase; font-size: 14px; margin-bottom: 15px; }
-        .f-col p { font-size: 13px; margin: 8px 0; cursor: pointer; }
-        .f-col p:hover { color: white; }
-        .copy-line { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 25px; text-align: center; font-size: 12px; }
-
-        @media (max-width: 960px) {
-            .footer-main, .footer-cols, .inst-twocol, .mvv-grid, .secretario-card, .home-grid, .tram-grid, .form-grid { grid-template-columns: 1fr; flex-direction: column; gap: 30px; }
-            .timeline::after { left: 31px; }
-            .timeline-item { width: 100%; padding-left: 70px; text-align: left; }
-            .timeline-item::after { left: 21px; }
-            .right, .left { left: 0; }
-            .vals-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resultados Electorales — Chubut</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
+:root {
+  --navy:#4f8999; --navy-light:#30557c; --navy-dark:#c2b59b;
+  --accent:#5b9bd5; --gold:#c9a84c; --bg:#d9d9d9; --white:#fff;
+  --text:#0f1a30; --muted:#0f1a30; --green:#27ae60; --border:#d9d9d9;
+  --warn:#e67e22; --warn-bg:#fef9e7;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:transparent;padding:20px 12px}
+.R{font-family:'Source Sans 3','Segoe UI',sans-serif;color:var(--text);max-width:1100px;margin:0 auto}
+.R-hd{background:linear-gradient(135deg,#2d4470,var(--navy-light));color:#fff;padding:24px 28px;border-radius:8px 8px 0 0}
+.R-hd h1{font-size:22px;font-weight:700;letter-spacing:.5px;margin-bottom:2px}
+.R-hd .sub{font-size:13px;font-weight:300;opacity:.8}
+.R-ctl{background:var(--white);padding:14px 28px;border-bottom:1px solid var(--border);display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end}
+.R-grp{display:flex;flex-direction:column;gap:3px}
+.R-grp label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--muted)}
+.R-grp select{padding:8px 12px;border:1px solid var(--border);border-radius:5px;font-family:inherit;font-size:14px;min-width:180px;cursor:pointer;background:var(--white)}
+.R-grp select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 2px rgba(91,155,213,.2)}
+.R-years{display:flex;gap:4px;flex-wrap:wrap}
+.R-yr{padding:7px 14px;border:2px solid var(--navy);border-radius:5px;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;background:var(--white);color:var(--navy);transition:.15s}
+.R-yr:hover,.R-yr.on{background:var(--navy);color:#fff}
+.R-yr.off{opacity:.3;cursor:not-allowed;border-style:dashed}
+.R-modes{display:flex;gap:0;margin-left:auto}
+.R-md{padding:8px 16px;border:1px solid var(--border);font-family:inherit;font-size:12px;font-weight:600;cursor:pointer;background:var(--white);color:var(--muted);transition:.15s}
+.R-md:first-child{border-radius:5px 0 0 5px}.R-md:last-child{border-radius:0 5px 5px 0}
+.R-md.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.R-nivel{display:flex;gap:0}
+.R-nv{padding:8px 18px;border:2px solid var(--accent);font-family:inherit;font-size:13px;font-weight:700;cursor:pointer;background:var(--white);color:var(--accent);transition:.15s;letter-spacing:.3px}
+.R-nv:first-child{border-radius:5px 0 0 5px}.R-nv:last-child{border-radius:0 5px 5px 0}
+.R-nv.on{background:var(--accent);color:#fff}
+.R-body{background:var(--white);padding:24px 28px;min-height:200px}
+table.T{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:24px}
+.T th{background:var(--navy);color:#fff;padding:10px 12px;text-align:left;font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.5px}
+.T th.r,.T td.r{text-align:right}.T th.c,.T td.c{text-align:center}
+.T td{padding:8px 12px;border-bottom:1px solid var(--border)}
+.T tr:hover td{background:#f0f4f8}
+.T tr.w td{background:#eef7ee;font-weight:600}
+.T tr.w td:first-child{border-left:3px solid var(--green)}
+.T tr.bk td{color:var(--muted);font-size:12px;background:#fafafa}
+.T tr.tot td{background:var(--navy-dark);color:var(--text);font-weight:700;border:none}
+.T tr.sub td{background:#e8ecf1;font-weight:600;font-size:12px}
+.T tr.sec td{background:var(--navy-light);color:#fff;font-weight:700;font-size:14px;padding:12px;letter-spacing:.3px}
+.T .bancas{background:var(--accent);color:#fff;border-radius:4px;padding:2px 8px;font-weight:700;font-size:12px;display:inline-block;min-width:24px;text-align:center}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
+.card{border:1px solid var(--border);border-radius:6px;padding:14px 16px;cursor:pointer;transition:.15s;display:flex;justify-content:space-between;align-items:center}
+.card:hover{border-color:var(--navy);box-shadow:0 2px 8px rgba(27,42,74,.1)}
+.card .n{font-weight:700;font-size:14px;color:var(--navy);margin-bottom:2px}
+.card .p{font-size:11px;color:var(--muted)}
+.card .pct{font-size:20px;font-weight:700;color:var(--navy)}
+.cmp-bar{background:#fffde7;border:1px solid #f9e076;border-radius:6px;padding:10px 16px;margin-bottom:16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:13px}
+.chip{background:var(--navy);color:#fff;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:500;display:inline-flex;align-items:center;gap:6px}
+.chip .x{cursor:pointer;opacity:.7;font-size:14px}.chip .x:hover{opacity:1}
+.empty{text-align:center;padding:60px 20px;color:var(--muted)}
+.empty .ic{font-size:48px;margin-bottom:12px}.empty .mg{font-size:16px}.empty .ht{font-size:13px;margin-top:8px}
+.R-ft{background:var(--navy-dark);color:var(--text);padding:14px 28px;font-size:11px;border-radius:0 0 8px 8px}
+.nav-btns{display:flex;justify-content:space-between;margin-top:8px}
+.warn-box{background:var(--warn-bg);border:1px solid var(--warn);border-radius:6px;padding:12px 16px;margin-bottom:16px;font-size:13px;color:#7d6608;display:flex;align-items:flex-start;gap:10px}
+.warn-box .wi{font-size:20px;flex-shrink:0}
+.prov-header{background:linear-gradient(135deg,#2d4470,#3a5a8c);border-radius:8px;padding:20px 24px;color:#fff;margin-bottom:20px}
+.prov-header h2{font-size:18px;font-weight:700;margin-bottom:4px}
+.prov-header .meta{font-size:13px;opacity:.8;display:flex;flex-wrap:wrap;gap:16px}
+.prov-header .formula{font-size:15px;font-weight:500;margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,.2)}
+.prov-dual{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
+.loading{text-align:center;padding:80px 20px;color:var(--muted);font-size:16px}
+.cand-photo{width:28px;height:28px;border-radius:50%;object-fit:cover;vertical-align:middle;margin-right:6px;border:1px solid var(--border);flex-shrink:0;cursor:pointer;transition:transform .15s}
+.cand-photo:hover{transform:scale(1.2);border-color:var(--accent)}
+.cand-cell{display:flex;align-items:center;gap:0}
+.cand-cell strong{flex:1;min-width:0}
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:9999;display:flex;align-items:center;justify-content:center;cursor:pointer;animation:lbIn .2s}
+.lightbox img{max-width:90vw;max-height:85vh;border-radius:8px;box-shadow:0 8px 40px rgba(0,0,0,.5);object-fit:contain}
+.lightbox .lb-close{position:absolute;top:16px;right:20px;color:#fff;font-size:32px;font-weight:700;cursor:pointer;line-height:1}
+@keyframes lbIn{from{opacity:0}to{opacity:1}}
+@media(max-width:800px){.prov-dual{grid-template-columns:1fr}}
+@media(max-width:600px){
+  .R-ctl{padding:12px 16px}.R-body{padding:16px}.R-hd{padding:16px}.R-hd h1{font-size:18px}
+  .R-grp select{min-width:130px;font-size:13px}.T{font-size:12px}.T td,.T th{padding:6px 8px}.cards{grid-template-columns:1fr}
+  .prov-header{padding:14px 16px}.prov-header h2{font-size:16px}
+}
+</style>
 </head>
 <body>
+<div class="R" id="app">
+  <div class="R-hd"><h1>RESULTADOS ELECTORALES</h1><div class="sub">Provincia del Chubut — Escrutinio Definitivo</div></div>
+  <div class="loading">Cargando datos...</div>
+</div>
+<script>
+// ═══════════════════════════════════════════════════
+// CARGA DE DATOS EXTERNOS
+// ═══════════════════════════════════════════════════
+let PROV = {};
+let DATA = {};
+let BANCAS = {};
+let LOC_MAP = {};
+let FOTOS = {};
+let LOGOS = {};
 
-    <header>
-        <div class="logo-container">
-            <img src="img/logoazulsep.png" alt="Logo Secretaría Electoral Permanente" class="logo-img-header">
-            <div class="logo-text">
-                <h1>Secretaría Electoral Permanente</h1>
-                <p>Provincia del Chubut · Portal Oficial</p>
-            </div>
-        </div>
-        <div class="search-box">
-            <input type="text" placeholder="Buscá un trámite o consulta...">
-            <span>🔍</span>
-        </div>
-    </header>
+async function init() {
+  try {
+    const [provRes, munRes] = await Promise.all([
+      fetch('datos_provinciales.json').then(r => r.json()),
+      fetch('datos_municipales.json').then(r => r.json())
+    ]);
+    PROV = provRes;
+    DATA = munRes.resultados;
+    BANCAS = munRes.bancas;
+    LOC_MAP = munRes.loc_map;
 
-    <nav>
-        <button class="active" onclick="showPage('inicio')">Inicio</button>
-        <button onclick="showPage('institucional')">Institucional</button>
-        <button onclick="showPage('registros')">Registros Electorales</button>
-        <button onclick="showPage('procesos')">Procesos Electorales</button>
-        <button onclick="showPage('partidos')">Partidos Políticos</button>
-        <button onclick="showPage('capacitacion')">Capacitación</button>
-        <button onclick="showPage('contacto')">Contacto</button>
-    </nav>
+    // Fotos: non-blocking, si falla no pasa nada
+    try {
+      const fotosRes = await fetch('fotos_candidatos.json').then(r => r.json());
+      FOTOS = fotosRes.fotos || {};
+      LOGOS = fotosRes.logos || {};
+    } catch(e) { console.log('Fotos no disponibles'); }
 
-    <div id="inicio" class="page active">
-        <section class="hero-horizontal">
-            <div class="welcome-overlay">
-                <div style="display: flex; align-items: center; gap: 30px; text-align: left;">
-                    <img src="img/logoazulsep.png" alt="Secretaría Electoral" style="width: 150px; height: auto; filter: drop-shadow(0px 4px 8px rgba(0,0,0,0.1));">
-                    <div>
-                        <h2>Bienvenidos a la Secretaría Electoral</h2>
-                        <p style="font-size: 1.05rem; line-height: 1.6; color: #444;">
-                            Garantizamos la imparcialidad, transparencia y eficacia de todos los procesos electorales en la Provincia del Chubut, fortaleciendo el sistema democrático y el ejercicio del derecho al voto.
-                        </p>
-                        <button class="tram-btn" style="width: auto; padding: 10px 20px; margin-top: 15px;" onclick="showPage('institucional')">Conocer más sobre la SEP</button>
-                    </div>
-                </div>
-            </div>
-        </section>
+    render();
+  } catch (e) {
+    document.getElementById('app').innerHTML = `
+      <div class="R-hd"><h1>RESULTADOS ELECTORALES</h1><div class="sub">Provincia del Chubut</div></div>
+      <div class="R-body"><div class="empty"><div class="ic">⚠️</div>
+        <div class="mg">Error al cargar datos</div>
+        <div class="ht">Verificá que los archivos datos_provinciales.json y datos_municipales.json estén en la misma carpeta que este HTML.<br><br><code style="font-size:11px;color:#c0392b">${e.message}</code></div>
+      </div></div>`;
+  }
+}
 
-        <div class="container">
-            <div class="sireppar-section">
-                <div>
-                    <h3 style="margin:0; color: var(--color-oscuro);">SIREPPAR</h3>
-                    <p style="margin:5px 0 0; color: #444;">Sistema de Registro de Partidos Políticos de la Provincia del Chubut.</p>
-                </div>
-                <button class="btn-sireppar" onclick="showPage('partidos')">INGRESAR AL SISTEMA</button>
-            </div>
+// ═══════════════════════════════════════════════════
+// CONSTANTES Y ESTADO
+// ═══════════════════════════════════════════════════
+const CATS=["Intendente","Concejales","Jefe Comunal","Consejo de la Magistratura","Tribunal de Cuentas","Juez de Paz","Referéndum Provincial","Referéndum Municipal"];
+const CLAB={"Intendente":"INTENDENTE","Concejales":"CONCEJALES","Jefe Comunal":"JEFE COMUNAL","Consejo de la Magistratura":"CONSEJO DE LA MAGISTRATURA","Tribunal de Cuentas":"TRIBUNAL DE CUENTAS","Juez de Paz":"JUEZ DE PAZ","Referéndum Provincial":"REFERÉNDUM PROVINCIAL","Referéndum Municipal":"REFERÉNDUM MUNICIPAL"};
+const YRS=[2025,2023,2019,2015,2011,2007,2003,1999,1995,1991,1987,1983];
+const MUN_AVAIL=[2025,2023];
 
-            <h2 style="border-left: 5px solid var(--color-acento-azul); padding-left: 15px; margin-bottom: 25px;">Notificaciones Oficiales</h2>
-            <div class="notif-bar">
-                <p><strong>[24/04/2026]</strong> Publicación del Padrón Provisorio para las Elecciones Provinciales 2026.</p>
-                <p><strong>[20/04/2026]</strong> Resolución N° 12/26: Cronograma de Capacitación para Autoridades de Mesa.</p>
-            </div>
+let S={year:2025,nivel:"provincial",mode:"detalle",loc:"",cmp:[],cat:"Intendente"};
 
-            <h2 style="border-left: 5px solid var(--color-acento-azul); padding-left: 15px; margin-bottom: 25px;">¿Qué necesitás hacer hoy?</h2>
-            <div class="home-grid">
-                <div class="home-card" onclick="showPage('registros')"><h4>Verificar Padrón</h4></div>
-                <div class="home-card" onclick="showPage('registros')"><h4>Justificar Voto</h4></div>
-                <div class="home-card" onclick="showPage('partidos')"><h4>Afiliarse</h4></div>
-                <div class="home-card" onclick="showPage('registros')"><h4>Ser Autoridad</h4></div>
-            </div>
-        </div>
+// ═══════════════════════════════════════════════════
+// HELPERS
+// ═══════════════════════════════════════════════════
+function locsFor(y,c){const d=DATA[y];return d?Object.keys(d).filter(l=>d[l][c]).sort():[];}
+function catsFor(y,l){const d=DATA[y];return(!d||!d[l])?[]:CATS.filter(c=>d[l][c]);}
+function res(y,l,c){const d=DATA[y];if(!d||!d[l]||!d[l][c])return[];return d[l][c].map(r=>({p:r[0],c:r[1],v:r[2],pct:r[3],bk:r[4]}));}
+function fmt(n){return n!=null?n.toLocaleString("es-AR"):"-";}
+
+function fotoImg(loc, cat, party) {
+  // Exact match first
+  const key = `${loc}|${cat}|${party}`;
+  let url = FOTOS[key];
+
+  // Fuzzy match on fotos
+  if (!url) {
+    const norm = s => s.toUpperCase().replace(/[–—-]/g,' ').replace(/\([^)]*\)/g,'').replace(/\s+/g,' ').trim();
+    const pn = norm(party);
+    for (const [k, v] of Object.entries(FOTOS)) {
+      if (!k.startsWith(loc+'|'+cat+'|')) continue;
+      const kp = norm(k.split('|')[2]);
+      if (kp === pn || kp.includes(pn) || pn.includes(kp)) { url = v; break; }
+    }
+  }
+
+  // Fuzzy match on logos
+  if (!url) {
+    const norm = s => s.toUpperCase().replace(/[–—-]/g,' ').replace(/\([^)]*\)/g,'').replace(/\s+/g,' ').trim();
+    const pn = norm(party);
+    for (const [k, v] of Object.entries(LOGOS)) {
+      const kn = norm(k);
+      if (kn === pn || kn.includes(pn) || pn.includes(kn)) { url = v; break; }
+    }
+  }
+
+  if (!url) return '';
+  return `<img class="cand-photo" src="${url}" onerror="this.style.display='none'" loading="lazy" onclick="openLB(this.src)" title="Click para ampliar">`;
+}
+
+function openLB(src) {
+  const lb = document.createElement('div');
+  lb.className = 'lightbox';
+  lb.innerHTML = `<span class="lb-close">✕</span><img src="${src}">`;
+  lb.onclick = () => lb.remove();
+  document.body.appendChild(lb);
+}
+
+function getBancas(loc,party){
+  const mun=LOC_MAP[loc];
+  if(!mun||!BANCAS[mun])return null;
+  const pNorm=party.toUpperCase().replace(/\([^)]*\)/g,"").trim();
+  for(const[k,v]of Object.entries(BANCAS[mun])){
+    if(k==="__total")continue;
+    const kNorm=k.replace(/\([^)]*\)/g,"").trim();
+    const pw=new Set(pNorm.split(/\s+/).filter(w=>w.length>3&&!["ALIANZA","PARTIDO","POR"].includes(w)));
+    const kw=new Set(kNorm.split(/\s+/).filter(w=>w.length>3&&!["ALIANZA","PARTIDO","POR"].includes(w)));
+    let matches=0;
+    for(const w of pw){if(kw.has(w))matches++;}
+    if(matches>=2||pNorm.includes(kNorm.slice(0,15))||kNorm.includes(pNorm.slice(0,15)))return v;
+  }
+  return 0;
+}
+function getTotalBancas(loc){
+  const mun=LOC_MAP[loc];
+  return(mun&&BANCAS[mun])?BANCAS[mun]["__total"]:null;
+}
+
+// ═══════════════════════════════════════════════════
+// RENDER: TABLA PROVINCIAL
+// ═══════════════════════════════════════════════════
+function renderProvTable(data, label, showBancas, provCat) {
+  let h = `<table class="T">`;
+  h += `<tr class="sec"><td colspan="${showBancas ? 4 : 3}">${label}</td></tr>`;
+  h += `<tr><th style="width:${showBancas ? '45%' : '50%'}">Partido / Alianza</th><th class="r">Votos</th><th class="c">%</th>`;
+  if (showBancas) h += `<th class="c">Bancas</th>`;
+  h += `</tr>`;
+  const sorted = [...data.partidos].sort((a, b) => b[1] - a[1]);
+  sorted.forEach((row, i) => {
+    const isW = i === 0;
+    const foto = fotoImg('_PROVINCIA', provCat||'', row[0]);
+    h += `<tr class="${isW ? 'w' : ''}">`;
+    h += `<td><div class="cand-cell">${foto}<strong>${row[0]}</strong></div></td>`;
+    h += `<td class="r" style="font-weight:700">${fmt(row[1])}</td>`;
+    h += `<td class="c">${row[2].toFixed(2)}%</td>`;
+    if (showBancas) {
+      const b = row.length > 3 ? row[3] : null;
+      h += `<td class="c">${b ? '<span class="bancas">' + b + '</span>' : '-'}</td>`;
+    }
+    h += `</tr>`;
+  });
+  h += `<tr class="sub"><td>VOTOS POSITIVOS</td><td class="r">${fmt(data.positivos)}</td><td class="c">${data.total > 0 ? (data.positivos / data.total * 100).toFixed(2) : 0}%</td>${showBancas ? '<td></td>' : ''}</tr>`;
+  h += `<tr class="bk"><td>VOTOS EN BLANCO</td><td class="r">${fmt(data.blanco)}</td><td class="c">${data.total > 0 ? (data.blanco / data.total * 100).toFixed(2) : 0}%</td>${showBancas ? '<td></td>' : ''}</tr>`;
+  h += `<tr class="bk"><td>VOTOS ANULADOS</td><td class="r">${fmt(data.nulos)}</td><td class="c">${data.total > 0 ? (data.nulos / data.total * 100).toFixed(2) : 0}%</td>${showBancas ? '<td></td>' : ''}</tr>`;
+  h += `<tr class="tot"><td>TOTAL VOTANTES</td><td class="r">${fmt(data.total)}</td><td class="c">100%</td>${showBancas ? '<td></td>' : ''}</tr>`;
+  h += `</table>`;
+  return h;
+}
+
+// ═══════════════════════════════════════════════════
+// RENDER: TABLA MUNICIPAL
+// ═══════════════════════════════════════════════════
+function renderTable(loc,cat,showHeader){
+  const r=res(S.year,loc,cat);
+  if(!r.length)return"";
+  const afirm=r.filter(x=>!x.bk).sort((a,b)=>b.v-a.v);
+  const blanks=r.filter(x=>x.bk);
+  const totAfirm=afirm.reduce((s,x)=>s+(x.v||0),0);
+  const totAll=r.reduce((s,x)=>s+(x.v||0),0);
+  const isConc=cat==="Concejales";
+  const isRef=cat.startsWith('Referéndum');
+  const tBancas=isConc?getTotalBancas(loc):null;
+  let h=`<table class="T">`;
+  if(showHeader)h+=`<tr class="sec"><td colspan="${isConc?5:4}">${CLAB[cat]||cat} — ${loc.toUpperCase()}${tBancas?" ("+tBancas+" bancas)":""}</td></tr>`;
+  h+=`<tr><th style="width:${isConc?"40%":"50%"}">${isRef?"Opción":"Partido / Alianza"}</th><th class="r">Votos</th><th class="c">%</th>`;
+  if(isConc)h+=`<th class="c">Bancas</th>`;
+  h+=`</tr>`;
+  afirm.forEach((x,i)=>{
+    const w=i===0;
+    const b=isConc?getBancas(loc,x.p):null;
+    let foto='';
+    if(isRef){
+      if(x.p==='SÍ') foto='<span style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:#27ae60;color:#fff;font-size:16px;font-weight:700;margin-right:8px;flex-shrink:0;vertical-align:middle">✓</span>';
+      else if(x.p==='NO') foto='<span style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:#c0392b;color:#fff;font-size:16px;font-weight:700;margin-right:8px;flex-shrink:0;vertical-align:middle">✗</span>';
+    } else {
+      foto=fotoImg(loc,cat,x.p);
+    }
+    h+=`<tr class="${w?"w":""}"><td><div class="cand-cell">${foto}<strong>${x.p}</strong></div>${x.c?'<span style="font-size:11px;color:var(--muted);margin-left:34px">'+x.c+"</span>":""}</td>`;
+    h+=`<td class="r" style="font-weight:700">${fmt(x.v)}</td>`;
+    h+=`<td class="c">${x.pct.toFixed(2)}%</td>`;
+    if(isConc)h+=`<td class="c">${b?'<span class="bancas">'+b+"</span>":"-"}</td>`;
+    h+=`</tr>`;
+  });
+  h+=`<tr class="sub"><td>VOTOS POSITIVOS</td><td class="r">${fmt(totAfirm)}</td><td class="c">${totAll>0?(totAfirm/totAll*100).toFixed(2):0}%</td>${isConc?"<td></td>":""}</tr>`;
+  blanks.forEach(x=>{
+    h+=`<tr class="bk"><td>${x.p.toUpperCase()}</td><td class="r">${fmt(x.v)}</td><td class="c">${x.pct.toFixed(2)}%</td>${isConc?"<td></td>":""}</tr>`;
+  });
+  h+=`<tr class="tot"><td>TOTAL VOTANTES</td><td class="r">${fmt(totAll)}</td><td class="c">100%</td>${isConc?"<td></td>":""}</tr>`;
+  h+=`</table>`;
+  return h;
+}
+
+// ═══════════════════════════════════════════════════
+// RENDER: TABLA REFERÉNDUM
+// ═══════════════════════════════════════════════════
+function renderRefTable(ref, showLocs) {
+  const badgeColor = ref.resultado==='APROBADO'?'var(--green)':'#c0392b';
+  let h = `<table class="T">`;
+  h += `<tr class="sec"><td colspan="3">${ref.titulo}</td></tr>`;
+  h += `<tr><td colspan="3" style="font-size:13px;color:var(--muted);padding:12px;background:#f8f9fa"><em>${ref.pregunta}</em><br><span style="display:inline-block;margin-top:8px;background:${badgeColor};color:#fff;padding:4px 16px;border-radius:20px;font-size:12px;font-weight:700;font-style:normal;letter-spacing:.5px">${ref.resultado}</span></td></tr>`;
+  h += `<tr><th style="width:50%">Opción</th><th class="r">Votos</th><th class="c">%</th></tr>`;
+  ref.partidos.forEach((row, i) => {
+    const isSi = row[0] === 'SÍ';
+    const isNo = row[0] === 'NO';
+    const isWinner = (isSi && row[2] > 50) || (isNo && row[2] > 50);
+    const icon = isSi
+      ? '<span style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:#27ae60;color:#fff;font-size:16px;font-weight:700;margin-right:8px;flex-shrink:0;vertical-align:middle">✓</span>'
+      : isNo
+      ? '<span style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:#c0392b;color:#fff;font-size:16px;font-weight:700;margin-right:8px;flex-shrink:0;vertical-align:middle">✗</span>'
+      : '';
+    h += `<tr class="${isWinner?'w':''}"><td><div class="cand-cell">${icon}<strong>${row[0]}</strong></div></td>`;
+    h += `<td class="r" style="font-weight:700">${fmt(row[1])}</td>`;
+    h += `<td class="c" style="font-weight:600">${row[2].toFixed(2)}%</td></tr>`;
+  });
+  h += `<tr class="sub"><td>VOTOS POSITIVOS</td><td class="r">${fmt(ref.positivos)}</td><td class="c">${ref.total>0?(ref.positivos/ref.total*100).toFixed(2):0}%</td></tr>`;
+  h += `<tr class="bk"><td>VOTOS EN BLANCO</td><td class="r">${fmt(ref.blanco)}</td><td class="c">${ref.total>0?(ref.blanco/ref.total*100).toFixed(2):0}%</td></tr>`;
+  h += `<tr class="bk"><td>VOTOS ANULADOS</td><td class="r">${fmt(ref.nulos)}</td><td class="c">${ref.total>0?(ref.nulos/ref.total*100).toFixed(2):0}%</td></tr>`;
+  h += `<tr class="tot"><td>TOTAL VOTANTES</td><td class="r">${fmt(ref.total)}</td><td class="c">100%</td></tr>`;
+  h += `</table>`;
+  return h;
+}
+
+function renderRefLocalidades(ref) {
+  if (!ref.localidades || !ref.localidades.length) return '';
+  const sorted = [...ref.localidades].sort((a,b) => a.loc.localeCompare(b.loc,'es'));
+  let h = `<table class="T">`;
+  h += `<tr class="sec"><td colspan="6">RESULTADOS POR LOCALIDAD</td></tr>`;
+  h += `<tr><th style="width:30%">Localidad</th><th class="r">SÍ</th><th class="c">%</th><th class="r">NO</th><th class="c">%</th><th class="r">Total</th></tr>`;
+  sorted.forEach(loc => {
+    const tot = loc.si + loc.no + loc.bl + loc.nu;
+    const pos = loc.si + loc.no;
+    const pctSi = pos > 0 ? (loc.si / pos * 100) : 0;
+    const pctNo = pos > 0 ? (loc.no / pos * 100) : 0;
+    const siWins = loc.si > loc.no;
+    h += `<tr><td><strong>${loc.loc}</strong></td>`;
+    h += `<td class="r" style="${siWins?'font-weight:700;color:var(--green)':''}">${fmt(loc.si)}</td>`;
+    h += `<td class="c" style="${siWins?'font-weight:600;color:var(--green)':''}">${pctSi.toFixed(1)}%</td>`;
+    h += `<td class="r" style="${!siWins?'font-weight:700;color:#c0392b':''}">${fmt(loc.no)}</td>`;
+    h += `<td class="c" style="${!siWins?'font-weight:600;color:#c0392b':''}">${pctNo.toFixed(1)}%</td>`;
+    h += `<td class="r">${fmt(tot)}</td></tr>`;
+  });
+  h += `</table>`;
+  return h;
+}
+
+// ═══════════════════════════════════════════════════
+// RENDER PRINCIPAL
+// ═══════════════════════════════════════════════════
+function render(){
+  const app=document.getElementById("app");
+  const isProv = S.nivel === "provincial";
+  const isMun = S.nivel === "municipal";
+  const yearAvail = isProv ? YRS : MUN_AVAIL;
+  if (!yearAvail.includes(S.year)) S.year = yearAvail[0];
+  // Fallback: if current category has no data for this year, switch to first available
+  if (isMun) {
+    const availCats = CATS.filter(c => locsFor(S.year, c).length > 0);
+    if (availCats.length > 0 && !availCats.includes(S.cat)) S.cat = availCats[0];
+  }
+  const lfc = isMun ? locsFor(S.year, S.cat) : [];
+
+  let h = `
+  <div class="R-hd">
+    <h1>RESULTADOS ELECTORALES</h1>
+    <div class="sub">Provincia del Chubut — Escrutinio Definitivo</div>
+  </div>
+  <div class="R-ctl">
+    <div class="R-grp"><label>Nivel</label>
+      <div class="R-nivel">
+        <button class="R-nv ${isProv?'on':''}" onclick="SS({nivel:'provincial',mode:'detalle',loc:'',cmp:[]})">Provincial</button>
+        <button class="R-nv ${isMun?'on':''}" onclick="SS({nivel:'municipal',mode:'detalle',loc:'',cmp:[]})">Municipal</button>
+      </div>
     </div>
+    <div class="R-grp"><label>Año electoral</label><div class="R-years">${YRS.map(y=>{
+      const a=yearAvail.includes(y);
+      return`<button class="R-yr ${y===S.year?"on":""} ${a?"":"off"}" onclick="${a?`SS({year:${y},loc:'',cmp:[]})`:""}">${y}</button>`;
+    }).join("")}</div></div>
+  </div>`;
 
-    <div id="institucional" class="page">
-        <section class="hero-horizontal" style="background: var(--color-oscuro);">
-            <div class="welcome-overlay" style="background: rgba(255,255,255,0.05); color: white; border-left-color: var(--color-dorado); box-shadow: none; text-align: left;">
-                <div style="font-size: 11px; font-weight: bold; color: var(--color-dorado); text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 8px;">Organismo Electoral</div>
-                <h2 style="color: white; margin-bottom: 10px;">Secretaría Electoral Permanente</h2>
-                <p style="color: rgba(255,255,255,0.8); font-size: 15px;">Organismo autónomo de la Legislatura Provincial con sede en Rawson. Garantiza la imparcialidad y transparencia de los procesos electorales en Chubut.</p>
-                <div class="ph-tags" style="justify-content: flex-start;">
-                    <span class="ph-tag">Ley XII N° 22</span>
-                    <span class="ph-tag">Legislatura Provincial</span>
-                    <span class="ph-tag">Rawson, Chubut</span>
-                </div>
-            </div>
-        </section>
+  if (isProv) {
+    const pData = PROV[S.year];
+    h += `<div class="R-body">`;
+    if (pData) {
+      h += `<div class="prov-header">`;
+      h += `<h2>${pData.tipo || 'Elecciones Provinciales'} ${S.year}</h2>`;
+      h += `<div class="meta"><span>📅 ${pData.fecha}</span><span>📋 Electores: ${fmt(pData.electores)}</span><span>🗳️ Participación: ${pData.participacion.toFixed(2)}%</span></div>`;
+      if (pData.formula) h += `<div class="formula">Fórmula electa: <strong>${pData.formula}</strong></div>`;
+      h += `</div>`;
+      if (pData.advertencia) h += `<div class="warn-box"><span class="wi">⚠️</span><span>${pData.advertencia}</span></div>`;
 
-        <div class="container" style="background: white;">
-            <h2 class="section-title">¿Qué es la Secretaría Electoral Permanente?</h2>
-            <div class="inst-twocol" style="box-shadow: none; padding: 0;">
-                <div>
-                    <p class="lead" style="font-weight: 600; color: var(--color-principal); margin-bottom: 15px;">Es el organismo técnico, independiente y permanente que garantiza la profesionalización de la administración electoral en la Provincia del Chubut.</p>
-                    <p style="margin-bottom: 15px; line-height: 1.6; color: #555;">Establecida como organismo autónomo dentro de la estructura de la Legislatura Provincial, opera con plena independencia funcional, lo que garantiza su imparcialidad en los procesos electorales y la separación de la gestión técnica respecto de las contingencias políticas coyunturales.</p>
-                    <p style="line-height: 1.6; color: #555;">Su titular es designado por el Poder Ejecutivo con aprobación de los dos tercios de la Legislatura, garantizando un amplio consenso político y la confianza de todos los actores del sistema democrático.</p>
-                </div>
-                <div>
-                    <div class="highlight-card"><div class="highlight-title">Mandato</div><p style="font-size: 13px; color:#555;">6 años con posibilidad de una sola reelección. Busca equilibrar la estabilidad institucional con la renovación democrática.</p></div>
-                    <div class="highlight-card dorado"><div class="highlight-title">Autonomía</div><p style="font-size: 13px; color:#555;">Autonomía presupuestaria dentro del Poder Legislativo, garantizando independencia operativa y técnica.</p></div>
-                    <div class="highlight-card"><div class="highlight-title">Sede Central</div><p style="font-size: 13px; color:#555;">Rawson, Chubut. Funciona en la Legislatura Provincial con atención de lunes a viernes.</p></div>
-                </div>
-            </div>
-
-            <h2 class="section-title">Misión, Visión y Valores</h2>
-            <div class="mvv-grid">
-                <div class="mvv-card"><h3>Misión</h3><p style="font-size:14px; color:#555; margin-top:10px; line-height:1.6;">Administrar y gestionar los procesos electorales de manera profesional, autónoma y eficiente, garantizando la transparencia y legitimidad de los comicios.</p></div>
-                <div class="mvv-card"><h3>Visión</h3><p style="font-size:14px; color:#555; margin-top:10px; line-height:1.6;">Ser un organismo electoral de referencia a nivel nacional, reconocido por su excelencia técnica, innovación tecnológica y compromiso con la calidad democrática.</p></div>
-                <div class="mvv-card"><h3>Valores</h3><p style="font-size:14px; color:#555; margin-top:10px; line-height:1.6;">Independencia, transparencia, profesionalismo, compromiso democrático y responsabilidad son los cinco pilares éticos institucionales.</p></div>
-            </div>
-
-            <h2 class="section-title">Secretario Electoral Permanente</h2>
-            <div class="secretario-card">
-                <div class="secretario-foto"><img src="img/alejandrotullio.jpeg" alt="Alejandro Tullio"></div>
-                <div>
-                    <span class="secretario-rol">Titular del organismo</span>
-                    <h3 style="color:var(--color-principal); margin-bottom: 5px;">Alejandro Tullio</h3>
-                    <p style="font-size:13px; color:#666; margin-bottom:15px;">Secretario Electoral Permanente · Designado con aprobación de los 2/3 de la Legislatura Provincial</p>
-                    <p class="secretario-bio">Abogado graduado en la Universidad Nacional de Lomas de Zamora, especialista en derecho electoral, tecnología y administración pública. Extensa trayectoria en organismos del Estado Nacional —Dirección Nacional Electoral— y participación en instancias internacionales de observación electoral.</p>
-                    <div class="secretario-tags">
-                        <span class="secretario-tag">Derecho Electoral</span>
-                        <span class="secretario-tag">Administración Pública</span>
-                        <span class="secretario-tag">Tecnología Electoral</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="registros" class="page">
-        <section class="tram-hero">
-            <div style="font-size: 11px; font-weight: bold; color: #86efac; text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 8px;">Atención al Ciudadano</div>
-            <h2 style="font-size: 30px; font-weight: 700; margin-bottom: 10px;">Trámites y Formularios</h2>
-            <p style="font-size: 15px; color: rgba(255,255,255,0.8); max-width: 680px; margin: 0 auto; line-height: 1.6;">Gestioná en línea o presencialmente los trámites electorales más frecuentes. Descargá formularios oficiales, conocé los requisitos y realizá consultas.</p>
-            <div class="ph-tags">
-                <span class="ph-tag">Gestión en Línea</span>
-                <span class="ph-tag">Formularios PDF</span>
-                <span class="ph-tag">Respuesta Ágil</span>
-            </div>
-        </section>
-
-        <section style="background: #f8f9fa; padding: 44px 8%;">
-            <h2 class="section-title">Trámites más frecuentes</h2>
-            <div class="tram-grid">
-                <article class="tram-card">
-                    <div class="tram-head">
-                        <div class="tram-h-ico">🔍</div>
-                        <div><div class="tram-ht">Verificar padrón electoral</div><div class="tram-hd">Consultá si figurás y dónde te corresponde votar</div></div>
-                    </div>
-                    <div class="tram-body">
-                        <div class="tram-steps">
-                            <div class="tram-step"><div class="tram-step-n">1</div><div class="tram-step-t">Ingresá tu número de DNI y género tal como figura en tu documento.</div></div>
-                            <div class="tram-step"><div class="tram-step-n">2</div><div class="tram-step-t">El sistema te arrojará el establecimiento escolar, mesa y orden de votación.</div></div>
-                        </div>
-                        <button class="tram-btn">Consultar Padrón</button>
-                    </div>
-                </article>
-
-                <article class="tram-card">
-                    <div class="tram-head">
-                        <div class="tram-h-ico">🗳️</div>
-                        <div><div class="tram-ht">Registrar un partido político</div><div class="tram-hd">Inicio de reconocimiento de personerías jurídicas</div></div>
-                    </div>
-                    <div class="tram-body">
-                        <div class="tram-steps">
-                            <div class="tram-step"><div class="tram-step-n">1</div><div class="tram-step-t">Presentar acta fundacional, carta orgánica y declaración de principios básicos.</div></div>
-                            <div class="tram-step"><div class="tram-step-n">2</div><div class="tram-step-t">Acreditar las afiliaciones requeridas de acuerdo a la normativa provincial Ley XII N° 23.</div></div>
-                        </div>
-                        <button class="tram-btn">Iniciar Registro</button>
-                    </div>
-                </article>
-
-                <article class="tram-card">
-                    <div class="tram-head">
-                        <div class="tram-h-ico">📝</div>
-                        <div><div class="tram-ht">Afiliación partidaria</div><div class="tram-hd">Incorporate o renunciá a un partido político oficial</div></div>
-                    </div>
-                    <div class="tram-body">
-                        <div class="tram-steps">
-                            <div class="tram-step"><div class="tram-step-n">1</div><div class="tram-step-t">Consultá tu estado de afiliación actual ingresando tu número de documento.</div></div>
-                            <div class="tram-step"><div class="tram-step-n">2</div><div class="tram-step-t">Completá la ficha oficial digital de afiliación o el formulario de renuncia.</div></div>
-                        </div>
-                        <button class="tram-btn">Consultar Afiliación</button>
-                    </div>
-                </article>
-
-                <article class="tram-card">
-                    <div class="tram-head">
-                        <div class="tram-h-ico">🔄</div>
-                        <div><div class="tram-ht">Cambio de Domicilio</div><div class="tram-hd">Actualizá tu circuito electoral tras mudarte</div></div>
-                    </div>
-                    <div class="tram-body">
-                        <div class="tram-steps">
-                            <div class="tram-step"><div class="tram-step-n">1</div><div class="tram-step-t">Realizá el cambio de domicilio físico en el Registro Civil para obtener tu nuevo DNI.</div></div>
-                            <div class="tram-step"><div class="tram-step-n">2</div><div class="tram-step-t">Los datos se actualizan de manera automática en el padrón electoral para el próximo comicio.</div></div>
-                        </div>
-                        <button class="tram-btn">Ver Estado</button>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <section style="background: white; padding: 44px 8%;">
-            <h2 class="section-title">Descarga de Formularios oficiales</h2>
-            <p style="font-size:14px; color:#666; margin-bottom:20px;">Documentos en formato PDF editable homologados por la Secretaría Electoral Permanente.</p>
-            <div class="form-grid">
-                <div class="form-card"><div class="form-ico"></div><div class="form-body"><div class="form-t">Aceptación de candidatura</div><div class="form-d">Postulación oficial para cargos provinciales.</div><a href="#" class="form-dl">Descargar PDF 📥</a></div></div>
-                <div class="form-card"><div class="form-ico"></div><div class="form-body"><div class="form-t">Presentación de avales</div><div class="form-d">Planilla para recolección de firmas autorizadas.</div><a href="#" class="form-dl">Descargar PDF 📥</a></div></div>
-                <div class="form-card"><div class="form-ico"></div><div class="form-body"><div class="form-t">Actas de escrutinio</div><div class="form-d">Modelos oficiales para el cierre de mesas.</div><a href="#" class="form-dl">Descargar PDF 📥</a></div></div>
-                <div class="form-card"><div class="form-ico"></div><div class="form-body"><div class="form-t">Modelos de telegramas</div><div class="form-d">Transmisión de resultados provisorios.</div><a href="#" class="form-dl">Descargar PDF 📥</a></div></div>
-                <div class="form-card"><div class="form-ico"></div><div class="form-body"><div class="form-t">Certificados de escrutinio</div><div class="form-d">Copias autorizadas para fiscales partidarios.</div><a href="#" class="form-dl">Descargar PDF 📥</a></div></div>
-                <div class="form-card"><div class="form-ico"></div><div class="form-body"><div class="form-t">Pictogramas oficiales</div><div class="form-d">Identidad visual oficial de la secretaría.</div><a href="#" class="form-dl">Descargar PDF 📥</a></div></div>
-            </div>
-        </section>
-    </div>
-
-    <div id="procesos" class="page">
-        <section class="hero-horizontal" style="background: linear-gradient(rgba(15, 26, 48, 0.8), rgba(15, 26, 48, 0.8)), url('https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1600&q=80') center/cover;">
-            <h2>Procesos Electorales</h2>
-            <p style="color: white; margin-top: 10px;">Cronograma oficial y etapas clave del Calendario vigente.</p>
-        </section>
-        <div class="container">
-            <div class="timeline">
-                <div class="timeline-item left"><div class="timeline-content"><span class="date-badge">15 de Marzo</span><h3>Cierre de Padrón Provisorio</h3><p>Fecha límite para novedades registrales y reclamos.</p></div></div>
-                <div class="timeline-item right"><div class="timeline-content"><span class="date-badge">10 de Abril</span><h3>Reconocimiento de Alianzas</h3><p>Fin del plazo legal para concertar frentes electorales.</p></div></div>
-                <div class="timeline-item left"><div class="timeline-content"><span class="date-badge">05 de Mayo</span><h3>Presentación de Listas</h3><p>Oficialización de precandidatos ante juntas partidarias.</p></div></div>
-            </div>
-        </div>
-    </div>
-
-    <div id="partidos" class="page">
-        <section style="background: var(--color-principal); color: white; padding: 50px 8%;">
-            <h2>Partidos Políticos y SIREPPAR</h2>
-            <p>Registro, agrupaciones vigentes y guías de tramitación legal para partidos y alianzas de Chubut.</p>
-        </section>
-        <div class="container">
-            <h3 class="section-title">Agrupaciones y Reconocimientos</h3>
-            <div class="list-item-panel"><div><strong>Partido Justicialista (PJ)</strong><p style="margin:4px 0 0; font-size:13px; color:#666;">Distrito Chubut - Reconocimiento Vigente</p></div><button class="btn-registro" style="padding:6px 14px; font-size:12px;">Ver Ficha</button></div>
-            <div class="list-item-panel"><div><strong>Unión Cívica Radical (UCR)</strong><p style="margin:4px 0 0; font-size:13px; color:#666;">Distrito Chubut - Reconocimiento Vigente</p></div><button class="btn-registro" style="padding:6px 14px; font-size:12px;">Ver Ficha</button></div>
-            <div class="list-item-panel"><div><strong>Propuesta Republicana (PRO)</strong><p style="margin:4px 0 0; font-size:13px; color:#666;">Provincial - En Proceso de Recomposición</p></div><button class="btn-registro" style="padding:6px 14px; font-size:12px;">Ver Ficha</button></div>
-        </div>
-    </div>
-
-    <div id="capacitacion" class="page">
-        <section style="background: var(--color-principal); color: white; padding: 50px 8%;">
-            <h2>Portal de Capacitación Electoral</h2>
-            <p>Material de estudio, guías de descarga y recursos interactivos para Autoridades de Mesa.</p>
-        </section>
-        <div class="container">
-            <div style="display:grid; grid-template-columns:1fr 1fr; gap:30px;">
-                <div class="inst-box">
-                    <h3>Manual para Autoridades de Mesa</h3>
-                    <p>Descargue el documento PDF oficial con las normativas, roles y responsabilidades para el día del sufragio.</p>
-                    <button class="btn-registro" style="margin-top:15px;">Descargar Manual (PDF)</button>
-                </div>
-                <div class="inst-box" style="border-top-color: var(--color-dorado);">
-                    <h3>Curso Virtual 2026</h3>
-                    <p>Acceda a las aulas virtuales guiadas para obtener la certificación obligatoria.</p>
-                    <button class="btn-registro" style="margin-top:15px;">Iniciar Aula Virtual</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="contacto" class="page">
-        <section style="background: var(--color-oscuro); color: white; padding: 50px 8%;">
-            <h2>Delegaciones y Contacto Oficial</h2>
-            <p>Canales de comunicación directa y atención presencial en la Sede Central.</p>
-        </section>
-        <div class="container">
-            <div style="display:grid; grid-template-columns:1fr 1.2fr; gap:40px;">
-                <div>
-                    <h3 class="section-title">Canales de Atención</h3>
-                    <p style="margin: 10px 0;"><strong>📍 Rawson (Sede Central):</strong> Mitre 550, Legislatura Provincial</p>
-                    <p style="margin: 10px 0;"><strong>📞 Teléfono:</strong> (0280) 4481-000</p>
-                    <p style="margin: 10px 0;"><strong>📧 Correo Técnico:</strong> secretaria@electoralchubut.gov.ar</p>
-                    <p style="margin: 10px 0;"><strong>⏰ Horario:</strong> Lunes a Viernes de 08:00 a 16:00 hs.</p>
-                </div>
-                <div class="inst-box">
-                    <h3>Envíe su consulta online</h3>
-                    <form style="display:flex; flex-direction:column; gap:12px; margin-top:15px;">
-                        <input type="text" placeholder="Nombre completo" style="padding:10px; border:1px solid #ccc; border-radius:4px;">
-                        <input type="email" placeholder="Correo electrónico" style="padding:10px; border:1px solid #ccc; border-radius:4px;">
-                        <textarea placeholder="Escriba su consulta aquí..." rows="4" style="padding:10px; border:1px solid #ccc; border-radius:4px; font-family:inherit;"></textarea>
-                        <button type="button" class="tram-btn">Enviar Mensaje</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        <div class="footer-main">
-            <div class="footer-brand">
-                <h2>Secretaría Electoral Permanente</h2>
-                <div class="social-row">
-                    <div class="social-icon">IG</div>
-                    <div class="social-icon">FB</div>
-                    <div class="social-icon">X</div>
-                    <div class="social-icon">TK</div>
-                    <div class="social-icon">WA</div>
-                    <div class="social-icon">YT</div>
-                </div>
-            </div>
-            <div class="footer-cols">
-                <div class="f-col">
-                    <h4>Secciones</h4>
-                    <p onclick="showPage('registros')">Padrón Electoral</p>
-                    <p onclick="showPage('procesos')">Elecciones</p>
-                    <p onclick="showPage('partidos')">Partidos Políticos</p>
-                </div>
-                <div class="f-col">
-                    <h4>Información</h4>
-                    <p onclick="showPage('institucional')">Normativa Vigente</p>
-                    <p onclick="showPage('institucional')">Resoluciones</p>
-                    <p onclick="showPage('capacitacion')">Gacetillas</p>
-                </div>
-            </div>
-        </div>
-        <div class="copy-line">
-            &copy; 2026 Secretaría Electoral Permanente de Chubut · Provincia del Chubut · Todos los derechos reservados.
-        </div>
-    </footer>
-
-    <script>
-        function showPage(id) {
-            // 1. Ocultamos todas las páginas quitándoles la clase activa e igualando el display
-            document.querySelectorAll('.page').forEach(p => {
-                p.classList.remove('active');
-                p.style.setProperty('display', 'none', 'important');
-            });
-
-            // 2. Buscamos el contenedor destino y le inyectamos los estilos correctos
-            const target = document.getElementById(id);
-            if (target) {
-                target.style.setProperty('display', 'flex', 'important');
-                target.classList.add('active');
-            }
-            
-            // 3. Estilos en caliente para el menú de navegación
-            document.querySelectorAll('nav button').forEach(btn => btn.classList.remove('active'));
-            
-            const btnActivo = Array.from(document.querySelectorAll('nav button')).find(b => b.getAttribute('onclick').includes(id));
-            if (btnActivo) btnActivo.classList.add('active');
-            
-            window.scrollTo(0,0);
+      if (pData.referendum_provincial) {
+        h += renderRefTable(pData.referendum_provincial);
+        if (pData.cm_esquel || pData.cm_trelew) {
+          h += `<div class="prov-dual">`;
+          if (pData.cm_esquel) h += `<div>${renderProvTable(pData.cm_esquel, "CONSEJO DE LA MAGISTRATURA — CIRC. ESQUEL", false, "CM Circ. Esquel")}</div>`;
+          if (pData.cm_trelew) h += `<div>${renderProvTable(pData.cm_trelew, "CONSEJO DE LA MAGISTRATURA — CIRC. TRELEW", false, "CM Circ. Trelew")}</div>`;
+          h += `</div>`;
         }
-    </script>
+      } else {
+        h += `<div class="prov-dual">`;
+        h += `<div>${renderProvTable(pData.gobernador, "GOBERNADOR Y VICEGOBERNADOR", false, "Gobernador")}</div>`;
+        h += `<div>${renderProvTable(pData.diputados, "DIPUTADOS PROVINCIALES (" + (pData.diputados.bancas || 27) + " bancas)", true, "Diputados")}</div>`;
+        h += `</div>`;
+      }
+    } else {
+      h += `<div class="empty"><div class="ic">📊</div><div class="mg">Datos provinciales no disponibles para ${S.year}</div></div>`;
+    }
+    h += `</div>`;
+  } else {
+    h += `<div class="R-ctl" style="padding-top:8px;border-bottom:none">
+    <div class="R-grp"><label>Categoría</label>
+      <select onchange="SS({cat:this.value,loc:'',cmp:[]})">
+        ${CATS.filter(c=>locsFor(S.year,c).length>0).map(c=>`<option value="${c}"${c===S.cat?" selected":""}>${CLAB[c]} (${locsFor(S.year,c).length})</option>`).join("")}
+      </select>
+    </div>
+    <div class="R-grp"><label>Localidad</label>
+      <select onchange="SS({loc:this.value,mode:'detalle'})">
+        <option value="">— Todas —</option>
+        ${lfc.map(l=>`<option value="${l}"${l===S.loc?" selected":""}>${l}</option>`).join("")}
+      </select>
+    </div>
+    <div class="R-modes">
+      <button class="R-md ${S.mode==="ganadores"?"on":""}" onclick="SS({mode:'ganadores',loc:''})">Ganadores</button>
+      <button class="R-md ${S.mode==="detalle"?"on":""}" onclick="SS({mode:'detalle'})">Detalle</button>
+      <button class="R-md ${S.mode==="comparar"?"on":""}" onclick="SS({mode:'comparar',loc:''})">Comparar</button>
+    </div>
+  </div>
+  <div class="R-body">`;
+
+    if(S.mode==="ganadores"){
+      const ws=lfc.map(l=>{const r=res(S.year,l,S.cat).filter(x=>!x.bk).sort((a,b)=>b.v-a.v);return r.length?{l,...r[0]}:null;}).filter(Boolean);
+      h+=`<div class="cards">${ws.map(w=>`<div class="card" onclick="SS({loc:'${w.l}',mode:'detalle'})"><div><div class="n">${w.l}</div><div class="p">${w.p}</div></div><div class="pct">${w.pct.toFixed(1)}%</div></div>`).join("")}</div>`;
+    } else if(S.mode==="detalle"){
+      if(!S.loc){
+        h+=`<div class="empty"><div class="ic">🗳️</div><div class="mg">Seleccioná una localidad</div><div class="ht">O elegí "Ganadores" para un resumen</div></div>`;
+      } else {
+        h+=renderTable(S.loc,S.cat,true);
+        const idx=lfc.indexOf(S.loc);
+        h+=`<div class="nav-btns">`;
+        h+=idx>0?`<button class="R-yr" onclick="SS({loc:'${lfc[idx-1]}'})">◄ ${lfc[idx-1]}</button>`:`<div></div>`;
+        h+=idx<lfc.length-1?`<button class="R-yr" onclick="SS({loc:'${lfc[idx+1]}'})">  ${lfc[idx+1]} ►</button>`:"";
+        h+=`</div>`;
+      }
+    } else if(S.mode==="comparar"){
+      h+=`<div style="margin-bottom:16px"><label style="font-size:12px;font-weight:600;color:var(--muted)">Agregar localidades:</label>
+        <select onchange="addCmp(this.value);this.value=''" style="margin-left:8px;padding:6px 10px;border:1px solid var(--border);border-radius:4px;font-size:13px">
+          <option value="">+ Agregar</option>${lfc.filter(l=>!S.cmp.includes(l)).map(l=>`<option value="${l}">${l}</option>`).join("")}
+        </select></div>`;
+      if(S.cmp.length>0){
+        h+=`<div class="cmp-bar">Comparando: ${S.cmp.map(l=>`<span class="chip">${l} <span class="x" onclick="rmCmp('${l}')">✕</span></span>`).join("")}</div>`;
+        const allP=new Set();const blankTypes=new Set();
+        S.cmp.forEach(l=>{const r=res(S.year,l,S.cat);r.forEach(x=>{if(x.bk)blankTypes.add(x.p);else allP.add(x.p);});});
+        const parties=[...allP].sort();const blanks=[...blankTypes].sort();const isConc=S.cat==="Concejales";
+        h+=`<table class="T"><tr><th>Partido / Alianza</th>`;
+        S.cmp.forEach(l=>{h+=`<th class="c" colspan="${isConc?3:2}">${l.toUpperCase()}</th>`;});
+        h+=`</tr><tr><th></th>`;
+        S.cmp.forEach(()=>{h+=`<th class="r" style="font-size:10px">Votos</th><th class="c" style="font-size:10px">%</th>`;if(isConc)h+=`<th class="c" style="font-size:10px">Bancas</th>`;});
+        h+=`</tr>`;
+        parties.forEach(p=>{
+          h+=`<tr><td><strong>${p}</strong></td>`;
+          S.cmp.forEach(l=>{
+            const r=res(S.year,l,S.cat);const m=r.find(x=>x.p===p);
+            const isW=r.filter(x=>!x.bk).sort((a,b)=>b.v-a.v)[0]?.p===p;
+            const st=isW?'font-weight:700;color:var(--green)':"";
+            if(m){h+=`<td class="r" style="${st}">${fmt(m.v)}</td><td class="c" style="${st}">${m.pct.toFixed(1)}%</td>`;if(isConc){const b=getBancas(l,p);h+=`<td class="c">${b?'<span class="bancas">'+b+"</span>":"-"}</td>`;}}
+            else{h+=`<td class="r" style="color:var(--muted)">—</td><td class="c">—</td>`;if(isConc)h+=`<td class="c">—</td>`;}
+          });h+=`</tr>`;
+        });
+        h+=`<tr class="sub"><td>VOTOS POSITIVOS</td>`;
+        S.cmp.forEach(l=>{const r=res(S.year,l,S.cat);const t=r.filter(x=>!x.bk).reduce((s,x)=>s+(x.v||0),0);const tot=r.reduce((s,x)=>s+(x.v||0),0);h+=`<td class="r">${fmt(t)}</td><td class="c">${tot>0?(t/tot*100).toFixed(1)+"%":""}</td>`;if(isConc)h+=`<td></td>`;});
+        h+=`</tr>`;
+        blanks.forEach(bp=>{h+=`<tr class="bk"><td>${bp.toUpperCase()}</td>`;S.cmp.forEach(l=>{const r=res(S.year,l,S.cat);const m=r.find(x=>x.p===bp);h+=`<td class="r">${m?fmt(m.v):"-"}</td><td class="c">${m?m.pct.toFixed(1)+"%":"-"}</td>`;if(isConc)h+=`<td></td>`;});h+=`</tr>`;});
+        h+=`<tr class="tot"><td>TOTAL VOTANTES</td>`;
+        S.cmp.forEach(l=>{const r=res(S.year,l,S.cat);const tot=r.reduce((s,x)=>s+(x.v||0),0);h+=`<td class="r">${fmt(tot)}</td><td class="c">100%</td>`;if(isConc)h+=`<td></td>`;});
+        h+=`</tr></table>`;
+      } else {
+        h+=`<div class="empty"><div class="ic">📊</div><div class="mg">Seleccioná 2 o más localidades para comparar</div></div>`;
+      }
+    }
+    h+=`</div>`;
+  }
+
+  app.innerHTML=h;
+}
+
+function SS(p){Object.assign(S,p);render();}
+function addCmp(l){if(l&&!S.cmp.includes(l)){S.cmp=[...S.cmp,l];render();}}
+function rmCmp(l){S.cmp=S.cmp.filter(x=>x!==l);render();}
+
+// Arrancar
+init();
+</script>
 </body>
 </html>
